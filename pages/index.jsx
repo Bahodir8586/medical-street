@@ -17,7 +17,7 @@ export default function Home() {
       <div>
         <Layout activeEl={2}>
           <Introduction />
-          <TermsOfService />
+          {/* <TermsOfService /> */}
           <Patient />
           {/* <Symptoms sex={'male'} /> */}
           <Interview />
