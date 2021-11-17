@@ -19,7 +19,7 @@ export default function Home() {
           <Introduction />
           <TermsOfService />
           <Patient />
-          <Symptoms />
+          <Symptoms sex={'male'} />
           <Interview />
           <Results />
         </Layout>
