@@ -8,12 +8,18 @@ import BodyBackFemale from '@/components/Body/BackBody/BodyFeMale';
 export default function Symptoms({ sex }) {
   const [showFront, setShowFront] = useState(true);
   const [symptoms, setSymptoms] = useState([]);
+
+  const chooseBodyPart = (val) => {
+    //   Triggered when body part is clicked
+    //   TODO: handle to show symptoms related to that part
+    console.log(val);
+  };
   return (
     <>
-      {sex === 'female' && showFront && <BodyFrontFemale />}
-      {sex === 'female' && !showFront && <BodyBackFemale />}
-      {sex === 'male' && showFront && <BodyFrontMale />}
-      {sex === 'male' && showFront && <BodyBackMale />}
+      {sex === 'female' && showFront && <BodyFrontFemale onClick={(val) => chooseBodyPart(val)} />}
+      {sex === 'female' && !showFront && <BodyBackFemale onClick={(val) => chooseBodyPart(val)} />}
+      {sex === 'male' && showFront && <BodyFrontMale onClick={(val) => chooseBodyPart(val)} />}
+      {sex === 'male' && showFront && <BodyBackMale onClick={(val) => chooseBodyPart(val)} />}
       <button onClick={() => setShowFront(!showFront)}>Rotate model</button>
     </>
   );

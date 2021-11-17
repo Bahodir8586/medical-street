@@ -1,4 +1,10 @@
+import Interview from '@/components/Home/Interview';
+import Introduction from '@/components/Home/Introduction';
+import Patient from '@/components/Home/Patient';
+import Results from '@/components/Home/Results';
 import Symptoms from '@/components/Home/Symptoms';
+import TermsOfService from '@/components/Home/TermsOfService';
+import Layout from '@/components/Layouts/HomeLayout/Layout';
 import Head from 'next/head';
 
 export default function Home() {
@@ -9,7 +15,13 @@ export default function Home() {
         <meta name="description" content="Medical Street application" />
       </Head>
       <div>
-        <Symptoms sex={'female'} />
+        <Layout />
+        <Introduction />
+        <TermsOfService />
+        <Patient />
+        <Symptoms />
+        <Interview />
+        <Results />
       </div>
     </div>
   );
