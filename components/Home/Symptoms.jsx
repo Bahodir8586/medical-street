@@ -15,8 +15,8 @@ export default function Symptoms({ sex }) {
     console.log(val);
   };
   return (
-    <>
-      <div className="flex py-8">
+    <div className="flex flex-col">
+      <div className="flex py-8 h-108">
         <div className="w-full pl-4">
           {/* TODO: Title input and badges of symptoms */}
           <h3 className="font-medium text-2xl mb-2">Add Symptoms</h3>
@@ -32,7 +32,7 @@ export default function Symptoms({ sex }) {
               placeholder="Search, e.g. headache"
             />
           </div>
-          <div className="mt-4 h-48 w-full bg-gray-300 rounded">
+          <div className="mt-4 h-48 w-full bg-gray-200 rounded">
             <p className="mx-auto py-20 text-center">Please try to add more symptoms</p>
           </div>
         </div>
@@ -60,6 +60,6 @@ export default function Symptoms({ sex }) {
           Next
         </button>
       </div>
-    </>
+    </div>
   );
 }
