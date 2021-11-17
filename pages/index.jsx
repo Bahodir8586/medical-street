@@ -15,13 +15,14 @@ export default function Home() {
         <meta name="description" content="Medical Street application" />
       </Head>
       <div>
-        <Layout />
-        <Introduction />
-        <TermsOfService />
-        <Patient />
-        <Symptoms />
-        <Interview />
-        <Results />
+        <Layout activeEl={2}>
+          <Introduction />
+          <TermsOfService />
+          <Patient />
+          <Symptoms />
+          <Interview />
+          <Results />
+        </Layout>
       </div>
     </div>
   );
