@@ -1,3 +1,18 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+.modelBody {
+    color: #93c5fd;
+    fill: currentColor;
+    display: inline-block;
+    vertical-align: top;
+    width: 168px;
+    height: 320px;
+  }
+  .body-area {
+    cursor: pointer;
+  }
+  .body-area:hover {
+    color: #3b82f6;
+  }

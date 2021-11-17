@@ -1,3 +1,4 @@
+import Symptoms from '@/components/Home/Symptoms';
 import Head from 'next/head';
 
 export default function Home() {
@@ -7,6 +8,9 @@ export default function Home() {
         <title>Medical Street</title>
         <meta name="description" content="Medical Street application" />
       </Head>
+      <div>
+        <Symptoms sex={'female'} />
+      </div>
     </div>
   );
 }
