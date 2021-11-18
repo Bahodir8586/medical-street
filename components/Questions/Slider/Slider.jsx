@@ -1,7 +1,7 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { PlusIcon, MinusIcon } from '@heroicons/react/outline';
 
-export default function Slider({ title }) {
+export default function Slider({ title, onChange }) {
   const [sliderValue, setSliderValue] = useState(25);
 
   const subtract = () => {
@@ -16,6 +16,9 @@ export default function Slider({ title }) {
     }
     setSliderValue(sliderValue + 1);
   };
+  useEffect(() => {
+    onChange(sliderValue);
+  }, [onChange, sliderValue]);
   return (
     <div className="flex flex-col items-center justify-center h-108">
       <h2 className="text-3xl font-semibold text-center mb-8">{title}</h2>

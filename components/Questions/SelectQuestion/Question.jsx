@@ -1,4 +1,4 @@
-export default function SelectQuestion({ title, options }) {
+export default function SelectQuestion({ title, options, onChange }) {
   console.log(title, options);
   return (
     <div className="flex flex-col items-center justify-center h-108">
@@ -7,6 +7,7 @@ export default function SelectQuestion({ title, options }) {
         {options.map((el) => (
           <div
             key={el.id}
+            onClick={() => onChange(el.id)}
             className="mx-3 rounded-md border shadow-md bg-gray-50 w-36 h-36 flex justify-center items-center cursor-pointer text-lg hover:bg-gray-100"
           >
             {el.label}

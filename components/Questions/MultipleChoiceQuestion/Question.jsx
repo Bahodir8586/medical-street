@@ -1,4 +1,4 @@
-export default function MultipleChoiceQuestion({ title, questions }) {
+export default function MultipleChoiceQuestion({ title, questions, onChange }) {
   return (
     <div className="flex flex-col items-center justify-center h-108">
       <h2 className="text-3xl font-semibold text-center mb-8">{title}</h2>
@@ -9,7 +9,7 @@ export default function MultipleChoiceQuestion({ title, questions }) {
             <div className="flex">
               {el.options.map((opt) => (
                 <div key={opt.id} className="mx-2">
-                  <input type="radio" name={el.id} />
+                  <input type="radio" name={el.id} onChange={() => onChange(el.id, opt.id)} />
                   <label className="mx-1">{opt.label}</label>
                 </div>
               ))}
