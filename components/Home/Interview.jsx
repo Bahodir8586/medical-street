@@ -1,5 +1,3 @@
-export default function Interview(){
-    return (
-        <></>
-    )
+export default function Interview({ submit }) {
+  return <></>;
 }

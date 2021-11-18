@@ -1,5 +1,3 @@
-export default function Results(){
-    return (
-        <></>
-    )
+export default function Results({ submit }) {
+  return <></>;
 }
