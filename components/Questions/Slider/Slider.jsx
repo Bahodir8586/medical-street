@@ -5,13 +5,13 @@ export default function Slider({ title }) {
   const [sliderValue, setSliderValue] = useState(25);
 
   const subtract = () => {
-    if (sliderValue === 0) {
+    if (sliderValue === 18) {
       return;
     }
     setSliderValue(sliderValue - 1);
   };
   const add = () => {
-    if (sliderValue === 100) {
+    if (sliderValue === 130) {
       return;
     }
     setSliderValue(sliderValue + 1);
@@ -31,8 +31,8 @@ export default function Slider({ title }) {
           <input
             className="w-full cursor-pointer"
             type="range"
-            min={0}
-            max={100}
+            min={18}
+            max={130}
             value={sliderValue}
             onChange={(e) => setSliderValue(e.target.value)}
           />
