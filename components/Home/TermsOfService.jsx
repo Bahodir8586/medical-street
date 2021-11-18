@@ -6,8 +6,14 @@ const termsOfService = [
   'Do not use in emergencies. In case of health emergency, call your local emergency number immediately.',
   'Your data is safe. Information that you provide is anonymous and not shared with anyone.',
 ];
-export default function TermsOfService() {
+export default function TermsOfService({ submit }) {
   const [accepted, setAccepted] = useState(false);
+  const submitTerms = () => {
+    if (!accepted) {
+      return;
+    }
+    submit();
+  };
   return (
     <div className="flex flex-col">
       <div className="flex py-2 h-108">
@@ -50,7 +56,10 @@ export default function TermsOfService() {
         <div className="w-full"></div>
       </div>
       <div className="border-t flex justify-end items-center py-4">
-        <button className="inline-flex items-center px-6 py-2 border border-transparent text-sm font-medium rounded-md shadow-sm text-white bg-green-600 hover:bg-green-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-green-500">
+        <button
+          onClick={submitTerms}
+          className="inline-flex items-center px-6 py-2 border border-transparent text-sm font-medium rounded-md shadow-sm text-white bg-green-600 hover:bg-green-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-green-500"
+        >
           Next
         </button>
       </div>
