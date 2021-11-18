@@ -14,7 +14,7 @@ export default function Slider({ title, onChange }) {
     if (sliderValue === 130) {
       return;
     }
-    setSliderValue(sliderValue + 1);
+    setSliderValue(+sliderValue + 1);
   };
   useEffect(() => {
     onChange(sliderValue);

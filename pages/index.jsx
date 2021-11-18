@@ -57,7 +57,7 @@ export default function Home() {
         <meta name="description" content="Medical Street application" />
       </Head>
       <div>
-        <Layout activeEl={2}>
+        <Layout activeEl={0}>
           {showIntro && <Introduction submit={submitIntro} />}
           {showTerms && <TermsOfService submit={submitTerms} />}
           {showPatient && <Patient submit={submitPatient} />}
