@@ -1,5 +1,5 @@
 import Head from 'next/head';
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 
 import Interview from '@/components/Home/Interview';
 import Introduction from '@/components/Home/Introduction';
@@ -17,6 +17,10 @@ export default function Home() {
   const [showInterview, setShowInterview] = useState(false);
   const [showResults, setShowResults] = useState(false);
 
+  const [sex, setSex] = useState(undefined);
+  const [age, setAge] = useState(undefined);
+  const [patientQuestions, setPatientQuestions] = useState([]);
+
   const submitIntro = () => {
     setShowIntro(false);
     setShowTerms(true);
@@ -25,7 +29,11 @@ export default function Home() {
     setShowTerms(false);
     setShowPatient(true);
   };
-  const submitPatient = () => {
+  const submitPatient = (sex, age, questions) => {
+    console.log(questions);
+    setSex(sex);
+    setAge(age);
+    setPatientQuestions(questions);
     setShowPatient(false);
     setShowSymptoms(true);
   };
@@ -53,7 +61,7 @@ export default function Home() {
           {showIntro && <Introduction submit={submitIntro} />}
           {showTerms && <TermsOfService submit={submitTerms} />}
           {showPatient && <Patient submit={submitPatient} />}
-          {showSymptoms && <Symptoms sex={'male'} submit={submitSymptoms} />}
+          {showSymptoms && <Symptoms sex={sex} submit={submitSymptoms} />}
           {showInterview && <Interview submit={submitInterview} />}
           {showResults && <Results submit={submitResults} />}
         </Layout>

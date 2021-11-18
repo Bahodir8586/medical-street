@@ -132,7 +132,10 @@ export default function Patient({ submit }) {
     console.log(`sex: ${sex}`);
     console.log(`age: ${age}`);
     console.log(questions);
-    submit();
+    const submitQuestions = questions.map((el) => {
+      return { id: el.id, value: el.value };
+    });
+    submit(sex, age, submitQuestions);
   };
 
   const multiSelectHandler = (questionId, answerId) => {
