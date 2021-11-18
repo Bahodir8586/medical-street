@@ -4,7 +4,7 @@ import Patient from '@/components/Home/Patient';
 import Results from '@/components/Home/Results';
 import Symptoms from '@/components/Home/Symptoms';
 import TermsOfService from '@/components/Home/TermsOfService';
-import Layout from '@/components/Layouts/HomeLayout/Layout';
+import Layout from '@/components/Layouts/HomeLayout';
 import Head from 'next/head';
 
 export default function Home() {
@@ -16,7 +16,7 @@ export default function Home() {
       </Head>
       <div>
         <Layout activeEl={2}>
-          <Introduction />
+          {/* <Introduction /> */}
           {/* <TermsOfService /> */}
           <Patient />
           {/* <Symptoms sex={'male'} /> */}
