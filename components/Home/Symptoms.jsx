@@ -21,9 +21,17 @@ export default function Symptoms({ sex, submit }) {
     setCoorY(+e.clientY - 20);
     setOrgan(val);
   };
+  const onSelectSymptom = (symptom) => {
+    setShowPopup(false);
+    if (symptom) {
+      setSymptoms([...symptoms, symptom]);
+    }
+  };
   return (
     <div className="flex flex-col">
-      {showPopup && <PopupBody coorX={coorX} coorY={coorY} organ={organ} />}
+      {showPopup && (
+        <PopupBody coorX={coorX} coorY={coorY} organ={organ} onSelect={onSelectSymptom} />
+      )}
       <div className="flex py-8 h-108">
         <div className="w-full pl-4">
           {/* TODO: Title input and badges of symptoms */}
