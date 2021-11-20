@@ -133,7 +133,7 @@ export default function Patient({ submit }) {
     console.log(`age: ${age}`);
     console.log(questions);
     const submitQuestions = questions.map((el) => {
-      return { id: el.id, value: el.value };
+      return { id: el.id, choice_id: el.value };
     });
     submit(sex, age, submitQuestions);
   };

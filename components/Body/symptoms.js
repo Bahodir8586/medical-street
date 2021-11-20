@@ -75,6 +75,4 @@ export const symptoms = {
     { id: 's_610', label: 'White spots on tonsils' },
     { id: 's_88', label: 'Shortness of breath' },
   ],
-  neck_or_throat: [],
-  chest: [],
 };

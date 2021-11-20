@@ -51,6 +51,12 @@ export default function Symptoms({ sex, age, submit }) {
       console.log(e);
     }
   };
+  const submitSymptoms = () => {
+    const submittedSymptoms = symptoms.map((el) => {
+      return { id: el.id, choice_id: 'present' };
+    });
+    submit(submittedSymptoms);
+  };
 
   return (
     <div className="flex flex-col">
@@ -143,7 +149,7 @@ export default function Symptoms({ sex, age, submit }) {
       </div>
       <div className="border-t flex justify-end items-center py-4">
         <button
-          onClick={() => submit(symptoms)}
+          onClick={() => submitSymptoms()}
           className="inline-flex items-center px-6 py-2 border border-transparent text-sm font-medium rounded-md shadow-sm text-white bg-green-600 hover:bg-green-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-green-500"
         >
           Next
