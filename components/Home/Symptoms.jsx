@@ -38,13 +38,17 @@ export default function Symptoms({ sex, submit }) {
         </div>
         <div className="w-full flex flex-col justify-center items-center">
           {sex === 'female' && showFront && (
-            <BodyFrontFemale onClick={(val) => chooseBodyPart(val)} />
+            <BodyFrontFemale onClick={(e, val) => chooseBodyPart(e, val)} />
           )}
           {sex === 'female' && !showFront && (
-            <BodyBackFemale onClick={(val) => chooseBodyPart(val)} />
+            <BodyBackFemale onClick={(e, val) => chooseBodyPart(e, val)} />
           )}
-          {sex === 'male' && showFront && <BodyFrontMale onClick={(val) => chooseBodyPart(val)} />}
-          {sex === 'male' && !showFront && <BodyBackMale onClick={(val) => chooseBodyPart(val)} />}
+          {sex === 'male' && showFront && (
+            <BodyFrontMale onClick={(e, val) => chooseBodyPart(e, val)} />
+          )}
+          {sex === 'male' && !showFront && (
+            <BodyBackMale onClick={(e, val) => chooseBodyPart(e, val)} />
+          )}
           <div className="mt-4">
             <button
               className="inline-flex items-center px-4 py-2 border border-transparent text-sm font-medium rounded-md shadow-sm text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500"
