@@ -20,6 +20,8 @@ export default function Home() {
   const [sex, setSex] = useState(undefined);
   const [age, setAge] = useState(undefined);
   const [patientQuestions, setPatientQuestions] = useState([]);
+  const [symptoms, setSymptoms] = useState([]);
+  const [initialInterview, setInitialInterview] = useState({});
 
   const submitIntro = () => {
     setShowIntro(false);
@@ -37,9 +39,19 @@ export default function Home() {
     setShowPatient(false);
     setShowSymptoms(true);
   };
-  const submitSymptoms = () => {
+  const submitSymptoms = (symptoms) => {
+    console.log(symptoms);
+    console.log(patientQuestions);
     setShowSymptoms(false);
     setShowInterview(true);
+    setSymptoms(symptoms);
+    setInitialInterview({
+      sex: sex,
+      age: {
+        value: age,
+      },
+      evidence: [...patientQuestions, ...symptoms],
+    });
   };
   const submitInterview = () => {
     setShowInterview(false);
@@ -62,7 +74,9 @@ export default function Home() {
           {showTerms && <TermsOfService submit={submitTerms} />}
           {showPatient && <Patient submit={submitPatient} />}
           {showSymptoms && <Symptoms sex={sex} submit={submitSymptoms} />}
-          {showInterview && <Interview submit={submitInterview} />}
+          {showInterview && (
+            <Interview submit={submitInterview} initialInterview={initialInterview} />
+          )}
           {showResults && <Results submit={submitResults} />}
         </Layout>
       </div>

@@ -3,7 +3,6 @@ import { symptoms } from './symptoms';
 
 export default function PopupBody({ coorX, coorY, organ, onSelect }) {
   const listOfSymptoms = symptoms[organ];
-  console.log(listOfSymptoms);
   return (
     <div
       style={{ position: 'absolute', top: coorY, left: coorX }}
