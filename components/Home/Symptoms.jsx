@@ -4,18 +4,26 @@ import BodyFrontMale from '@/components/Body/FrontBody/BodyMale';
 import BodyFrontFemale from '@/components/Body/FrontBody/BodyFeMale';
 import BodyBackMale from '@/components/Body/BackBody/BodyMale';
 import BodyBackFemale from '@/components/Body/BackBody/BodyFeMale';
+import PopupBody from '../Body/PopupBody';
 
 export default function Symptoms({ sex, submit }) {
   const [showFront, setShowFront] = useState(true);
+  const [organ, setOrgan] = useState(undefined);
+  const [showPopup, setShowPopup] = useState(false);
+  const [coorX, setCoorX] = useState(undefined);
+  const [coorY, setCoorY] = useState(undefined);
   const [symptoms, setSymptoms] = useState([]);
 
-  const chooseBodyPart = (val) => {
+  const chooseBodyPart = (e, val) => {
     //   Triggered when body part is clicked
-    //   TODO: handle to show symptoms related to that part
-    console.log(val);
+    setShowPopup(true);
+    setCoorX(+e.clientX + 40);
+    setCoorY(+e.clientY - 20);
+    setOrgan(val);
   };
   return (
     <div className="flex flex-col">
+      {showPopup && <PopupBody coorX={coorX} coorY={coorY} organ={organ} />}
       <div className="flex py-8 h-108">
         <div className="w-full pl-4">
           {/* TODO: Title input and badges of symptoms */}
@@ -51,7 +59,7 @@ export default function Symptoms({ sex, submit }) {
           )}
           <div className="mt-4">
             <button
-              className="inline-flex items-center px-4 py-2 border border-transparent text-sm font-medium rounded-md shadow-sm text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500"
+              className="inline-flex items-center px-4 py-2 border border-transparent text-sm font-medium rounded-md shadow-sm text-white bg-blue-600 hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500"
               onClick={() => setShowFront(!showFront)}
             >
               Rotate model
