@@ -23,10 +23,18 @@ export default function Symptoms({ sex, submit }) {
   };
   const onSelectSymptom = (symptom) => {
     setShowPopup(false);
-    if (symptom) {
-      setSymptoms([...symptoms, symptom]);
+    if (symptoms.indexOf(symptom) !== -1 || !symptom) {
+      return;
+    }
+    setSymptoms([...symptoms, symptom]);
+  };
+  const removeSymptom = (symptom) => {
+    const index = symptoms.indexOf(symptom);
+    if (index > -1) {
+      setSymptoms([...symptoms.splice(index, 1)]);
     }
   };
+  
   return (
     <div className="flex flex-col">
       {showPopup && (
@@ -48,8 +56,31 @@ export default function Symptoms({ sex, submit }) {
               placeholder="Search, e.g. headache"
             />
           </div>
-          <div className="mt-4 h-48 w-full bg-gray-200 rounded">
-            <p className="mx-auto py-20 text-center">Please try to add more symptoms</p>
+          <div className="mt-4 h-48 w-full bg-gray-200 rounded overflow-auto">
+            {symptoms.length === 0 ? (
+              <p className="mx-auto py-20 text-center">Please try to add more symptoms</p>
+            ) : (
+              <div className="py-2 px-1">
+                {symptoms.map((el, index) => (
+                  <span
+                    key={index}
+                    className="inline-flex rounded-full items-center py-0.5 pl-2.5 pr-1 text-sm font-medium bg-blue-500 text-white mx-1"
+                  >
+                    {el}
+                    <button
+                      onClick={() => removeSymptom(el)}
+                      type="button"
+                      className="flex-shrink-0 ml-0.5 h-4 w-4 rounded-full inline-flex items-center justify-center text-blue-700 hover:bg-blue-600 hover:text-white focus:outline-none focus:bg-blue-300 focus:text-white"
+                    >
+                      <span className="sr-only">Remove large option</span>
+                      <svg className="h-2 w-2" stroke="currentColor" fill="none" viewBox="0 0 8 8">
+                        <path strokeLinecap="round" strokeWidth="1.5" d="M1 1l6 6m0-6L1 7" />
+                      </svg>
+                    </button>
+                  </span>
+                ))}
+              </div>
+            )}
           </div>
         </div>
         <div className="w-full flex flex-col justify-center items-center">
