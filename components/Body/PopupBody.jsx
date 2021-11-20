@@ -18,9 +18,9 @@ export default function PopupBody({ coorX, coorY, organ, onSelect }) {
             <li
               onClick={() => onSelect(el)}
               className="px-3 py-1 cursor-pointer mb-2 hover:bg-gray-200 list-none"
-              key={index}
+              key={el.id}
             >
-              {el}
+              {el.name}
             </li>
           ))}
         </div>

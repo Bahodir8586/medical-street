@@ -19,7 +19,12 @@ export default function Home() {
 
   const [sex, setSex] = useState(undefined);
   const [age, setAge] = useState(undefined);
-  const [patientQuestions, setPatientQuestions] = useState([]);
+  const [patientQuestions, setPatientQuestions] = useState([
+    {
+      id: 'p_236',
+      choice_id: 'present',
+    },
+  ]);
   const [symptoms, setSymptoms] = useState([]);
   const [initialInterview, setInitialInterview] = useState({});
 
@@ -35,7 +40,7 @@ export default function Home() {
     console.log(questions);
     setSex(sex);
     setAge(age);
-    setPatientQuestions(questions);
+    setPatientQuestions([...patientQuestions, ...questions]);
     setShowPatient(false);
     setShowSymptoms(true);
   };

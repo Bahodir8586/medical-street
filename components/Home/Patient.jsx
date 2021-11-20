@@ -8,7 +8,7 @@ export default function Patient({ submit }) {
   const [age, setAge] = useState(25);
   const [questions, setQuestions] = useState([
     {
-      id: 1,
+      id: 'p_7',
       label: "I'm overweight or obese",
       value: '',
       options: [
@@ -27,7 +27,7 @@ export default function Patient({ submit }) {
       ],
     },
     {
-      id: 2,
+      id: 'p_28',
       label: 'I smoke cigarettes',
       value: '',
       options: [
@@ -46,7 +46,7 @@ export default function Patient({ submit }) {
       ],
     },
     {
-      id: 3,
+      id: 'p_264',
       label: 'I’ve recently suffered an injury',
       value: '',
       options: [
@@ -65,7 +65,7 @@ export default function Patient({ submit }) {
       ],
     },
     {
-      id: 4,
+      id: 'p_10',
       label: 'I have high cholesterol',
       value: '',
       options: [
@@ -84,7 +84,7 @@ export default function Patient({ submit }) {
       ],
     },
     {
-      id: 5,
+      id: 'p_9',
       label: 'I have hypertension',
       value: '',
       options: [
