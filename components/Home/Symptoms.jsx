@@ -5,14 +5,18 @@ import BodyFrontFemale from '@/components/Body/FrontBody/BodyFeMale';
 import BodyBackMale from '@/components/Body/BackBody/BodyMale';
 import BodyBackFemale from '@/components/Body/BackBody/BodyFeMale';
 import PopupBody from '../Body/PopupBody';
+import axios from '@/utils/axios';
 
-export default function Symptoms({ sex, submit }) {
+export default function Symptoms({ sex, age, submit }) {
   const [showFront, setShowFront] = useState(true);
   const [organ, setOrgan] = useState(undefined);
   const [showPopup, setShowPopup] = useState(false);
   const [coorX, setCoorX] = useState(undefined);
   const [coorY, setCoorY] = useState(undefined);
   const [symptoms, setSymptoms] = useState([]);
+  const [searchValue, setSearchValue] = useState('');
+  const [searchResults, setSearchResults] = useState([]);
+  const [showResults, setShowResults] = useState(false);
 
   const chooseBodyPart = (e, val) => {
     //   Triggered when body part is clicked
@@ -22,23 +26,38 @@ export default function Symptoms({ sex, submit }) {
     setOrgan(val);
   };
   const onSelectSymptom = (symptom) => {
+    setSearchValue('');
+    setShowResults(false);
+    console.log(symptom);
     setShowPopup(false);
     if (symptoms.indexOf(symptom) !== -1 || !symptom) {
       return;
     }
     setSymptoms([...symptoms, symptom]);
   };
-  const removeSymptom = (symptom) => {
-    const index = symptoms.indexOf(symptom);
+  const removeSymptom = (symptomId) => {
+    const index = symptoms.findIndex((el) => el.id === symptomId);
+    console.log(index);
     if (index > -1) {
       setSymptoms([...symptoms.splice(index, 1)]);
+      console.log([...symptoms.splice(index, 1)]);
     }
   };
-
+  const search = async () => {
+    try {
+      const response = await axios.get(
+        `/search?phrase=${searchValue}&age.value=${age}&sex=${sex}&max_results=15&types=symptom`
+      );
+      setSearchResults(response.data);
+      setShowResults(true);
+    } catch (e) {
+      console.log(e);
+    }
+  };
   return (
     <div className="flex flex-col">
       {showPopup && (
-        <PopupBody coorX={coorX} coorY={coorY} organ={organ} onSelect={onSelectSymptom} />
+        <PopupBody sex={sex} coorX={coorX} coorY={coorY} organ={organ} onSelect={onSelectSymptom} />
       )}
       <div className="flex py-8 h-108">
         <div className="w-full pl-4">
@@ -48,13 +67,29 @@ export default function Symptoms({ sex, submit }) {
             Please use the search or click on the body. Add as many symptoms as you can for the most
             accurate results.
           </p>
-          <div className="mt-4">
+          <div className="mt-4 relative">
             <input
               type="text"
               name="text"
+              value={searchValue}
+              onChange={(e) => setSearchValue(e.target.value)}
               className="shadow-sm focus:ring-indigo-500 focus:border-indigo-500 block w-full sm:text-sm border-gray-300 rounded-md"
               placeholder="Search, e.g. headache"
             />
+            <button onClick={search}>search</button>
+            {showResults && (
+              <div className="w-full h-56 bg-gray-100 absolute top-10 overflow-auto">
+                {searchResults.map((el) => (
+                  <li
+                    onClick={() => onSelectSymptom(el)}
+                    key={el.id}
+                    className="list-none px-3 py-2 hover:bg-gray-200 cursor-pointer"
+                  >
+                    {el.label}
+                  </li>
+                ))}
+              </div>
+            )}
           </div>
           <div className="mt-4 h-48 w-full bg-gray-200 rounded overflow-auto">
             {symptoms.length === 0 ? (
@@ -63,12 +98,12 @@ export default function Symptoms({ sex, submit }) {
               <div className="py-2 px-1">
                 {symptoms.map((el, index) => (
                   <span
-                    key={index}
-                    className="inline-flex rounded-full items-center py-0.5 pl-2.5 pr-1 text-sm font-medium bg-blue-500 text-white mx-1"
+                    key={el.id}
+                    className="inline-flex rounded-full items-center py-0.5 pl-2.5 pr-1 text-sm font-medium bg-blue-500 text-white mx-1 mb-1"
                   >
-                    {el}
+                    {el.label}
                     <button
-                      onClick={() => removeSymptom(el)}
+                      onClick={() => removeSymptom(el.id)}
                       type="button"
                       className="flex-shrink-0 ml-0.5 h-4 w-4 rounded-full inline-flex items-center justify-center text-blue-700 hover:bg-blue-600 hover:text-white focus:outline-none focus:bg-blue-300 focus:text-white"
                     >

@@ -1,7 +1,7 @@
 import { XIcon } from '@heroicons/react/outline';
 import { symptoms } from './symptoms';
 
-export default function PopupBody({ coorX, coorY, organ, onSelect }) {
+export default function PopupBody({ sex, coorX, coorY, organ, onSelect }) {
   const listOfSymptoms = symptoms[organ];
   return (
     <div
@@ -14,13 +14,13 @@ export default function PopupBody({ coorX, coorY, organ, onSelect }) {
       </div>
       <div className="h-44 overflow-auto">
         <div>
-          {listOfSymptoms?.map((el, index) => (
+          {listOfSymptoms?.map((el) => (
             <li
               onClick={() => onSelect(el)}
               className="px-3 py-1 cursor-pointer mb-2 hover:bg-gray-200 list-none"
               key={el.id}
             >
-              {el.name}
+              {el.label}
             </li>
           ))}
         </div>

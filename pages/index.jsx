@@ -78,7 +78,7 @@ export default function Home() {
           {showIntro && <Introduction submit={submitIntro} />}
           {showTerms && <TermsOfService submit={submitTerms} />}
           {showPatient && <Patient submit={submitPatient} />}
-          {showSymptoms && <Symptoms sex={sex} submit={submitSymptoms} />}
+          {showSymptoms && <Symptoms sex={sex} age={age} submit={submitSymptoms} />}
           {showInterview && (
             <Interview submit={submitInterview} initialInterview={initialInterview} />
           )}
