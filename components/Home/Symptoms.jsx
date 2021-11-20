@@ -1,4 +1,5 @@
-import { useState } from 'react';
+import { useState, useEffect, useMemo, useCallback } from 'react';
+import { debounce } from 'lodash';
 
 import BodyFrontMale from '@/components/Body/FrontBody/BodyMale';
 import BodyFrontFemale from '@/components/Body/FrontBody/BodyFeMale';
@@ -28,7 +29,6 @@ export default function Symptoms({ sex, age, submit }) {
   const onSelectSymptom = (symptom) => {
     setSearchValue('');
     setShowResults(false);
-    console.log(symptom);
     setShowPopup(false);
     if (symptoms.indexOf(symptom) !== -1 || !symptom) {
       return;
@@ -36,17 +36,14 @@ export default function Symptoms({ sex, age, submit }) {
     setSymptoms([...symptoms, symptom]);
   };
   const removeSymptom = (symptomId) => {
-    const index = symptoms.findIndex((el) => el.id === symptomId);
-    console.log(index);
-    if (index > -1) {
-      setSymptoms([...symptoms.splice(index, 1)]);
-      console.log([...symptoms.splice(index, 1)]);
-    }
+    console.log(symptomId);
   };
+
   const search = async () => {
+    console.log('running');
     try {
       const response = await axios.get(
-        `/search?phrase=${searchValue}&age.value=${age}&sex=${sex}&max_results=15&types=symptom`
+        `/search?phrase=${searchValue}&age.value=${age}&sex=${sex}&max_results=25&types=symptom`
       );
       setSearchResults(response.data);
       setShowResults(true);
@@ -54,6 +51,7 @@ export default function Symptoms({ sex, age, submit }) {
       console.log(e);
     }
   };
+
   return (
     <div className="flex flex-col">
       {showPopup && (
@@ -72,7 +70,9 @@ export default function Symptoms({ sex, age, submit }) {
               type="text"
               name="text"
               value={searchValue}
-              onChange={(e) => setSearchValue(e.target.value)}
+              onChange={(e) => {
+                setSearchValue(e.target.value);
+              }}
               className="shadow-sm focus:ring-indigo-500 focus:border-indigo-500 block w-full sm:text-sm border-gray-300 rounded-md"
               placeholder="Search, e.g. headache"
             />
@@ -96,7 +96,7 @@ export default function Symptoms({ sex, age, submit }) {
               <p className="mx-auto py-20 text-center">Please try to add more symptoms</p>
             ) : (
               <div className="py-2 px-1">
-                {symptoms.map((el, index) => (
+                {symptoms.map((el) => (
                   <span
                     key={el.id}
                     className="inline-flex rounded-full items-center py-0.5 pl-2.5 pr-1 text-sm font-medium bg-blue-500 text-white mx-1 mb-1"

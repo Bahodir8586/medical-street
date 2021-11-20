@@ -9,7 +9,7 @@ export default function PopupBody({ sex, coorX, coorY, organ, onSelect }) {
       className="w-72 h-56 border  bg-white rounded"
     >
       <div className="h-12 flex justify-between items-center px-3 text-lg font-semibold py-3 bg-gray-50 capitalize">
-        {organ}
+        {organ.replace('_', ' ')}
         <XIcon className="w-4 h-4 cursor-pointer" onClick={() => onSelect(null)} />
       </div>
       <div className="h-44 overflow-auto">
