@@ -13,7 +13,7 @@ export default function Interview({ submit, initialInterview }) {
   const [activeQuestion, setActiveQuestion] = useState({});
   const [newData, setNewData] = useState([]);
 
-  const loadNextQuestion = async () => {
+  const loadNextQuestion = useCallback(async () => {
     try {
       const response = await axios.post('/diagnosis', information);
       console.log(response);
@@ -33,19 +33,27 @@ export default function Interview({ submit, initialInterview }) {
       console.log(e);
       setIsLoading(false);
     }
-  };
+  },[information]);
 
   useEffect(() => {
     loadNextQuestion();
-  }, []);
+  }, [loadNextQuestion]);
 
   const submitInterview = () => {
+    console.log(newData);
+    console.log(information);
+    const updatedInfo = { ...information };
+    updatedInfo.evidence = [...updatedInfo.evidence, ...newData];
+    setInformation(updatedInfo);
     loadNextQuestion();
   };
 
   const multiSelectHandler = (questionId, answerId) => {
-    console.log(questionId, answerId);
-    console.log(activeQuestion);
+    const questions = [...newData];
+    const selectedQuestion = questions.find((el) => el.id === questionId);
+    selectedQuestion.choice_id = answerId;
+    setNewData(questions);
+    console.log(questions);
   };
   return (
     <div className="flex flex-col">

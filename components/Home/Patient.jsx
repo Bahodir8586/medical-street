@@ -9,9 +9,9 @@ export default function Patient({ submit }) {
   const [questions, setQuestions] = useState([
     {
       id: 'p_7',
-      label: "I'm overweight or obese",
+      name: "I'm overweight or obese",
       value: '',
-      options: [
+      choices: [
         {
           id: 'present',
           label: 'Yes',
@@ -28,9 +28,9 @@ export default function Patient({ submit }) {
     },
     {
       id: 'p_28',
-      label: 'I smoke cigarettes',
+      name: 'I smoke cigarettes',
       value: '',
-      options: [
+      choices: [
         {
           id: 'present',
           label: 'Yes',
@@ -47,9 +47,9 @@ export default function Patient({ submit }) {
     },
     {
       id: 'p_264',
-      label: 'I’ve recently suffered an injury',
+      name: 'I’ve recently suffered an injury',
       value: '',
-      options: [
+      choices: [
         {
           id: 'present',
           label: 'Yes',
@@ -66,9 +66,9 @@ export default function Patient({ submit }) {
     },
     {
       id: 'p_10',
-      label: 'I have high cholesterol',
+      name: 'I have high cholesterol',
       value: '',
-      options: [
+      choices: [
         {
           id: 'present',
           label: 'Yes',
@@ -85,9 +85,9 @@ export default function Patient({ submit }) {
     },
     {
       id: 'p_9',
-      label: 'I have hypertension',
+      name: 'I have hypertension',
       value: '',
-      options: [
+      choices: [
         {
           id: 'present',
           label: 'Yes',
@@ -152,7 +152,7 @@ export default function Patient({ submit }) {
           onChange={(val) => {
             setSex(val);
           }}
-          options={[
+          choices={[
             { id: 'female', label: 'Female' },
             { id: 'male', label: 'Male' },
           ]}

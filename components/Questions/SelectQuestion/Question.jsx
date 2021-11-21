@@ -1,13 +1,13 @@
 import { useState } from 'react';
-export default function SelectQuestion({ title, options, onChange }) {
+export default function SelectQuestion({ title, choices, onChange }) {
   const [selectedValue, setSelectedValue] = useState(undefined);
-  console.log(title, options);
+  console.log(title, choices);
   return (
     <div className="flex flex-col items-center justify-center h-108">
       <h2 className="text-3xl font-semibold text-center mb-4">{title}</h2>
       <div className="text-xl font-medium text-center mb-4">{selectedValue}</div>
       <div className="flex justify-center items-center">
-        {options.map((el) => (
+        {choices.map((el) => (
           <div
             key={el.id}
             onClick={() => {
