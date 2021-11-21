@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react';
+import { useEffect, useState, useCallback } from 'react';
 
 import MultipleChoiceQuestion from '@/components/Questions/MultipleChoiceQuestion/';
 import SelectQuestion from '@/components/Questions/SelectQuestion';
@@ -14,34 +14,38 @@ export default function Interview({ submit, initialInterview }) {
   const [newData, setNewData] = useState([]);
 
   const loadNextQuestion = useCallback(async () => {
+    setShowMultiple(false);
+    setShowSelect(false);
+    setIsLoading(true);
     try {
       const response = await axios.post('/diagnosis', information);
       console.log(response);
       setIsLoading(false);
       const question = response.data.question;
+      const newData = question.items.map((el) => {
+        return { id: el.id, choice_id: undefined };
+      });
+      setNewData(newData);
       setActiveQuestion(question);
+      console.log(question.items[0]);
       if (question.type === 'group_single') {
         setShowMultiple(true);
-        const newData = question.items.map((el) => {
-          return { id: el.id, choice_id: undefined };
-        });
-        setNewData(newData);
       } else if (question.type === 'single') {
+        setShowSelect(true);
       } else if (question.type === 'group_multiple') {
+        setShowMultiple(true);
       }
     } catch (e) {
       console.log(e);
       setIsLoading(false);
     }
-  },[information]);
+  }, [information]);
 
   useEffect(() => {
     loadNextQuestion();
   }, [loadNextQuestion]);
 
   const submitInterview = () => {
-    console.log(newData);
-    console.log(information);
     const updatedInfo = { ...information };
     updatedInfo.evidence = [...updatedInfo.evidence, ...newData];
     setInformation(updatedInfo);
@@ -53,8 +57,14 @@ export default function Interview({ submit, initialInterview }) {
     const selectedQuestion = questions.find((el) => el.id === questionId);
     selectedQuestion.choice_id = answerId;
     setNewData(questions);
-    console.log(questions);
   };
+  const singleSelectHandler = (answerId) => {
+    const questions = [...newData];
+    const selectedQuestion = questions[0];
+    selectedQuestion.choice_id = answerId;
+    setNewData(questions);
+  };
+
   return (
     <div className="flex flex-col">
       {isLoading && (
@@ -67,7 +77,13 @@ export default function Interview({ submit, initialInterview }) {
           onChange={(questionId, answerId) => multiSelectHandler(questionId, answerId)}
         />
       )}
-      {showSelect && <SelectQuestion />}
+      {showSelect && (
+        <SelectQuestion
+          title={activeQuestion.text}
+          choices={activeQuestion.items[0].choices}
+          onChange={(answerId) => singleSelectHandler(answerId)}
+        />
+      )}
       <div className="border-t flex justify-end items-center py-4">
         <button
           onClick={submitInterview}

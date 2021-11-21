@@ -7,7 +7,7 @@ export default function SelectQuestion({ title, choices, onChange }) {
       <h2 className="text-3xl font-semibold text-center mb-4">{title}</h2>
       <div className="text-xl font-medium text-center mb-4">{selectedValue}</div>
       <div className="flex justify-center items-center">
-        {choices.map((el) => (
+        {choices?.map((el) => (
           <div
             key={el.id}
             onClick={() => {
