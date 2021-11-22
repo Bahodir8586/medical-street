@@ -65,7 +65,7 @@ export default function Layout({ activeEl, ...props }) {
           </div>
         </nav>
       </header>
-      <main className="container mx-auto max-w-5xl my-4 py-4 flex h-4xl">
+      <main className="container mx-auto max-w-5xl my-4 py-4 flex min-h-4xl">
         <Sidebar activeIndex={activeEl} />
         <div className="border rounded-lg bg-white w-full p-8">{props.children}</div>
       </main>

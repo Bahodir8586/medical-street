@@ -24,7 +24,7 @@ export default function Interview({ submit, initialInterview }) {
       if (response.data.should_stop) {
         // return;
         submit(response.data.conditions);
-        return
+        return;
       }
       const question = response.data.question;
       const newData = question.items.map((el) => {
@@ -44,11 +44,11 @@ export default function Interview({ submit, initialInterview }) {
       console.log(e);
       setIsLoading(false);
     }
-  }, [information, submit]);
+  }, [information]);
 
   useEffect(() => {
     loadNextQuestion();
-  }, [loadNextQuestion]);
+  }, []);
 
   const submitInterview = () => {
     const updatedInfo = { ...information };
