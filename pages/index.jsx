@@ -8,6 +8,7 @@ import Results from '@/components/Home/Results';
 import Symptoms from '@/components/Home/Symptoms';
 import TermsOfService from '@/components/Home/TermsOfService';
 import Layout from '@/components/Layouts/HomeLayout';
+import axios from 'axios';
 
 export default function Home() {
   const [showIntro, setShowIntro] = useState(true);
@@ -23,10 +24,29 @@ export default function Home() {
     {
       id: 'p_236',
       choice_id: 'present',
+      source: 'initial',
     },
   ]);
   const [symptoms, setSymptoms] = useState([]);
   const [initialInterview, setInitialInterview] = useState({});
+  const [conditions, setConditions] = useState([
+    {
+      id: 'c_15',
+      name: 'Celiac disease',
+      common_name: 'Celiac disease',
+      sex_filter: 'both',
+      categories: ['Gastroenterology'],
+      prevalence: 'very_rare',
+      acuteness: 'chronic_with_exacerbations',
+      severity: 'moderate',
+      extras: {
+        icd10_code: 'K90.0',
+        hint: 'Please consult a gastroenterologist.',
+      },
+      triage_level: 'consultation',
+      recommended_channel: 'personal_visit',
+    },
+  ]);
 
   const submitIntro = () => {
     setShowIntro(false);
@@ -58,7 +78,12 @@ export default function Home() {
       evidence: [...patientQuestions, ...symptoms],
     });
   };
-  const submitInterview = () => {
+  const submitInterview = async (cons) => {
+    const newCons = cons.map(async (el, index) => {
+      return await axios.get(`/conditions/${el.id}`);
+    });
+    console.log(newCons);
+    setConditions(newCons);
     setShowInterview(false);
     setShowResults(true);
   };
@@ -82,7 +107,7 @@ export default function Home() {
           {showInterview && (
             <Interview submit={submitInterview} initialInterview={initialInterview} />
           )}
-          {showResults && <Results submit={submitResults} />}
+          {showResults && <Results submit={submitResults} conditions={conditions} />}
         </Layout>
       </div>
     </div>

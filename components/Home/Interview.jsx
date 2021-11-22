@@ -19,8 +19,12 @@ export default function Interview({ submit, initialInterview }) {
     setIsLoading(true);
     try {
       const response = await axios.post('/diagnosis', information);
-      console.log(response);
+      console.log(response.data);
       setIsLoading(false);
+      if (response.data.should_stop) {
+        return;
+        submit(response.data.conditions);
+      }
       const question = response.data.question;
       const newData = question.items.map((el) => {
         return { id: el.id, choice_id: undefined };
@@ -39,7 +43,7 @@ export default function Interview({ submit, initialInterview }) {
       console.log(e);
       setIsLoading(false);
     }
-  }, [information]);
+  }, [information, submit]);
 
   useEffect(() => {
     loadNextQuestion();
