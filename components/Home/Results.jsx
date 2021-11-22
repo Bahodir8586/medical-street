@@ -1,27 +1,27 @@
 export default function Results({ submit, conditions }) {
-  console.log(conditions[0]);
+  console.log(conditions);
   return (
     <div className="flex flex-col">
       <div className="flex py-2 h-108">
         {conditions.map((el) => (
-          <div key={el.id} className="w-full">
-            <h3 className="text-xl font-semibold pl-6 mb-2">{el.common_name}</h3>
+          <div key={el.data.id} className="w-full">
+            <h3 className="text-xl font-semibold pl-6 mb-2">{el.data.common_name}</h3>
             <div className="flex capitalize">
               <div className="w-full px-3">
                 <li className="capitalize">Prevalence: {el.prevalence.replaceAll('_', ' ')}</li>
                 <li>
                   Categories:{' '}
-                  {el.categories.map((cat, ind) => (
+                  {el.data.categories.map((cat, ind) => (
                     <span key={ind}>{cat}</span>
                   ))}
                 </li>
-                <li>Severity: {el.severity.replaceAll('_', ' ')}</li>
+                <li>Severity: {el.data.severity.replaceAll('_', ' ')}</li>
               </div>
               <div className="w-full px-3">
-                <li>Acuteness: {el.acuteness}</li>
-                <li>Triage level: {el.triage_level.replaceAll('_', ' ')}</li>
-                <li>Recommended channel: {el.recommended_channel.replaceAll('_', ' ')}</li>
-                <li>Hint: {el.extras?.hint}</li>
+                <li>Acuteness: {el.data.acuteness}</li>
+                <li>Triage level: {el.data.triage_level.replaceAll('_', ' ')}</li>
+                <li>Recommended channel: {el.data.recommended_channel.replaceAll('_', ' ')}</li>
+                <li>Hint: {el.data.extras?.hint}</li>
               </div>
             </div>
           </div>

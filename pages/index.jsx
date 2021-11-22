@@ -8,7 +8,7 @@ import Results from '@/components/Home/Results';
 import Symptoms from '@/components/Home/Symptoms';
 import TermsOfService from '@/components/Home/TermsOfService';
 import Layout from '@/components/Layouts/HomeLayout';
-import axios from 'axios';
+import axios from '@/utils/axios';
 
 export default function Home() {
   const [showIntro, setShowIntro] = useState(true);
@@ -79,9 +79,11 @@ export default function Home() {
     });
   };
   const submitInterview = async (cons) => {
-    const newCons = cons.map(async (el, index) => {
-      return await axios.get(`/conditions/${el.id}`);
-    });
+    const newCons = await Promise.all(
+      cons.map(async (el, index) => {
+        return await axios.get(`/conditions/${el.id}?age.value=${age}`);
+      })
+    );
     console.log(newCons);
     setConditions(newCons);
     setShowInterview(false);

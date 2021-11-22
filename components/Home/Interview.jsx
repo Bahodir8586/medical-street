@@ -22,8 +22,9 @@ export default function Interview({ submit, initialInterview }) {
       console.log(response.data);
       setIsLoading(false);
       if (response.data.should_stop) {
-        return;
+        // return;
         submit(response.data.conditions);
+        return
       }
       const question = response.data.question;
       const newData = question.items.map((el) => {
