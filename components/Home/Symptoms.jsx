@@ -30,13 +30,21 @@ export default function Symptoms({ sex, age, submit }) {
     setSearchValue('');
     setShowResults(false);
     setShowPopup(false);
-    if (symptoms.indexOf(symptom) !== -1 || !symptom) {
+    const alreadyExist = Boolean(symptoms.find((el) => el.id === symptom.id));
+    if (alreadyExist || !symptom) {
       return;
     }
     setSymptoms([...symptoms, symptom]);
   };
   const removeSymptom = (symptomId) => {
-    console.log(symptomId);
+    const symptom = symptoms.find((el) => el.id === symptomId);
+    if (!symptom) {
+      return;
+    }
+    const index = symptoms.indexOf(symptom);
+    const newSymptoms = [...symptoms];
+    newSymptoms.splice(index, 1);
+    setSymptoms(newSymptoms);
   };
 
   const search = async () => {
