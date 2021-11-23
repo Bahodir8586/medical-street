@@ -17,6 +17,21 @@ export default function Home() {
   const [showSymptoms, setShowSymptoms] = useState(false);
   const [showInterview, setShowInterview] = useState(false);
   const [showResults, setShowResults] = useState(false);
+  const [activeSidebar, setActiveSidebar] = useState(0);
+
+  useEffect(() => {
+    if (showIntro || showTerms) {
+      setActiveSidebar(0);
+    } else if (showPatient) {
+      setActiveSidebar(1);
+    } else if (showSymptoms) {
+      setActiveSidebar(2);
+    } else if (showInterview) {
+      setActiveSidebar(3);
+    } else if (showResults) {
+      setActiveSidebar(4);
+    }
+  }, [showIntro, showTerms, showPatient, showSymptoms, showInterview, showResults]);
 
   const [sex, setSex] = useState(undefined);
   const [age, setAge] = useState(undefined);
@@ -80,7 +95,7 @@ export default function Home() {
   };
   const submitInterview = async (cons) => {
     const newCons = await Promise.all(
-      cons.map(async (el, index) => {
+      cons.map(async (el) => {
         return await axios.get(`/conditions/${el.id}?age.value=${age}`);
       })
     );
@@ -101,7 +116,7 @@ export default function Home() {
         <meta name="description" content="Medical Street application" />
       </Head>
       <div>
-        <Layout activeEl={0}>
+        <Layout activeEl={activeSidebar}>
           {showIntro && <Introduction submit={submitIntro} />}
           {showTerms && <TermsOfService submit={submitTerms} />}
           {showPatient && <Patient submit={submitPatient} />}

@@ -53,7 +53,7 @@ export default function Interview({ submit, initialInterview }) {
   const submitInterview = () => {
     console.log(newData);
     let allAnswered = true;
-    const notAnsweredQuestions = newData.map((el) => {
+    newData.map((el) => {
       if (el.choice_id) {
         return;
       }

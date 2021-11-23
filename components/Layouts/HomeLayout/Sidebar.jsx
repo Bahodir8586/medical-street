@@ -10,7 +10,7 @@ export default function Sidebar({ activeIndex }) {
               activeIndex === index
                 ? 'text-gray-900'
                 : activeIndex < index
-                ? 'text-gray-600'
+                ? 'text-gray-500'
                 : 'text-gray-400'
             } font-medium mb-2`}
           >
