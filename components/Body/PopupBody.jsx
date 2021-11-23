@@ -2,7 +2,7 @@ import { XIcon } from '@heroicons/react/outline';
 import { symptoms } from './symptoms';
 
 export default function PopupBody({ sex, coorX, coorY, organ, onSelect }) {
-  const listOfSymptoms = symptoms[organ];
+  const listOfSymptoms = symptoms[sex][organ];
   return (
     <div
       style={{ position: 'absolute', top: coorY, left: coorX }}
