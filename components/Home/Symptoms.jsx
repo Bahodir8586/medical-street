@@ -18,6 +18,7 @@ export default function Symptoms({ sex, age, submit }) {
   const [searchValue, setSearchValue] = useState('');
   const [searchResults, setSearchResults] = useState([]);
   const [showResults, setShowResults] = useState(false);
+  const [timeOutId, setTimeOutId] = useState(undefined);
 
   const chooseBodyPart = (e, val) => {
     //   Triggered when body part is clicked
@@ -85,12 +86,16 @@ export default function Symptoms({ sex, age, submit }) {
               name="text"
               value={searchValue}
               onChange={(e) => {
+                clearTimeout(timeOutId);
+                const funcId = setTimeout(() => {
+                  search();
+                }, 2000);
                 setSearchValue(e.target.value);
+                setTimeOutId(funcId);
               }}
               className="shadow-sm focus:ring-indigo-500 focus:border-indigo-500 block w-full sm:text-sm border-gray-300 rounded-md"
               placeholder="Search, e.g. headache"
             />
-            <button onClick={search}>search</button>
             {showResults && (
               <div className="w-full h-56 bg-gray-100 absolute top-10 overflow-auto">
                 {searchResults.map((el) => (
