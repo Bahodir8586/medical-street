@@ -61,6 +61,9 @@ export default function Symptoms({ sex, age, submit }) {
     }
   };
   const submitSymptoms = () => {
+    if (symptoms.length === 0) {
+      return;
+    }
     const submittedSymptoms = symptoms.map((el) => {
       return { id: el.id, choice_id: 'present', source: 'initial' };
     });

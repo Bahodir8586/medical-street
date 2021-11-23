@@ -51,6 +51,19 @@ export default function Interview({ submit, initialInterview }) {
   }, [information]);
 
   const submitInterview = () => {
+    console.log(newData);
+    let allAnswered = true;
+    const notAnsweredQuestions = newData.map((el) => {
+      if (el.choice_id) {
+        return;
+      }
+      allAnswered = false;
+      return;
+    });
+    console.log(allAnswered);
+    if (!allAnswered) {
+      return;
+    }
     const updatedInfo = { ...information };
     updatedInfo.evidence = [...updatedInfo.evidence, ...newData];
     setInformation(updatedInfo);
