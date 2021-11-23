@@ -18,7 +18,7 @@ export default function Results({ submit, conditions }) {
                   ))}
                 </li>
                 <li>Severity: {el.data.severity.replaceAll('_', ' ')}</li>
-                <li>Acuteness: {el.data.acuteness}</li>
+                <li>Acuteness: {el.data.acuteness.replaceAll('_', ' ')}</li>
               </div>
               <div className="w-full px-3">
                 <li>Triage level: {el.data.triage_level.replaceAll('_', ' ')}</li>

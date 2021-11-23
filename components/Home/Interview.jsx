@@ -48,13 +48,13 @@ export default function Interview({ submit, initialInterview }) {
 
   useEffect(() => {
     loadNextQuestion();
-  }, []);
+  }, [information]);
 
   const submitInterview = () => {
     const updatedInfo = { ...information };
     updatedInfo.evidence = [...updatedInfo.evidence, ...newData];
     setInformation(updatedInfo);
-    loadNextQuestion();
+    // loadNextQuestion();
   };
 
   const multiSelectHandler = (questionId, answerId) => {
