@@ -2,113 +2,18 @@ import { useState } from 'react';
 import SelectQuestion from '@/components/Questions/SelectQuestion';
 import MultipleChoiceQuestion from '@/components/Questions/MultipleChoiceQuestion';
 import Slider from '@/components/Questions/Slider';
+import axios from '@/utils/axios';
 
 export default function Patient({ submit }) {
   const [sex, setSex] = useState(undefined);
   const [age, setAge] = useState(25);
-  const [questions, setQuestions] = useState([
-    {
-      id: 'p_7',
-      name: "I'm overweight or obese",
-      value: '',
-      choices: [
-        {
-          id: 'present',
-          label: 'Yes',
-        },
-        {
-          id: 'absent',
-          label: 'No',
-        },
-        {
-          id: 'unknown',
-          label: "Don't know",
-        },
-      ],
-    },
-    {
-      id: 'p_28',
-      name: 'I smoke cigarettes',
-      value: '',
-      choices: [
-        {
-          id: 'present',
-          label: 'Yes',
-        },
-        {
-          id: 'absent',
-          label: 'No',
-        },
-        {
-          id: 'unknown',
-          label: "Don't know",
-        },
-      ],
-    },
-    {
-      id: 'p_264',
-      name: 'I’ve recently suffered an injury',
-      value: '',
-      choices: [
-        {
-          id: 'present',
-          label: 'Yes',
-        },
-        {
-          id: 'absent',
-          label: 'No',
-        },
-        {
-          id: 'unknown',
-          label: "Don't know",
-        },
-      ],
-    },
-    {
-      id: 'p_10',
-      name: 'I have high cholesterol',
-      value: '',
-      choices: [
-        {
-          id: 'present',
-          label: 'Yes',
-        },
-        {
-          id: 'absent',
-          label: 'No',
-        },
-        {
-          id: 'unknown',
-          label: "Don't know",
-        },
-      ],
-    },
-    {
-      id: 'p_9',
-      name: 'I have hypertension',
-      value: '',
-      choices: [
-        {
-          id: 'present',
-          label: 'Yes',
-        },
-        {
-          id: 'absent',
-          label: 'No',
-        },
-        {
-          id: 'unknown',
-          label: "Don't know",
-        },
-      ],
-    },
-  ]);
+  const [questions, setQuestions] = useState([]);
 
   const [showSex, setShowSex] = useState(true);
   const [showAge, setShowAge] = useState(false);
   const [showQuestions, setShowQuestions] = useState(false);
 
-  const submitPatient = () => {
+  const submitPatient = async () => {
     if (showSex) {
       if (!sex) {
         return;
@@ -118,6 +23,34 @@ export default function Patient({ submit }) {
       return;
     }
     if (showAge) {
+      const response = await axios.post('/suggest', {
+        sex,
+        age: { value: age },
+        suggest_method: 'risk_factors',
+      });
+      const newQuestions = response.data.map((el) => {
+        return {
+          id: el.id,
+          name: el.common_name,
+          value: '',
+          choices: [
+            {
+              id: 'present',
+              label: 'Yes',
+            },
+            {
+              id: 'absent',
+              label: 'No',
+            },
+            {
+              id: 'unknown',
+              label: "Don't know",
+            },
+          ],
+        };
+      });
+      console.log(newQuestions);
+      setQuestions(newQuestions);
       setShowAge(false);
       setShowQuestions(true);
       return;

@@ -27,13 +27,13 @@ export default function Symptoms({ sex, age, submit }) {
     setOrgan(val);
   };
   const onSelectSymptom = (symptom) => {
-    setSearchValue('');
-    setShowResults(false);
-    setShowPopup(false);
     const alreadyExist = Boolean(symptoms.find((el) => el.id === symptom.id));
     if (alreadyExist || !symptom) {
       return;
     }
+    setSearchValue('');
+    setShowResults(false);
+    setShowPopup(false);
     setSymptoms([...symptoms, symptom]);
   };
   const removeSymptom = (symptomId) => {
