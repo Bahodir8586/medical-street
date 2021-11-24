@@ -22,9 +22,14 @@ export default function Symptoms({ sex, age, submit }) {
   const chooseBodyPart = (e, val) => {
     //   Triggered when body part is clicked
     setShowPopup(true);
-    console.log(e.clientX, e.clientY);
-    setCoorX(+e.screenX + 40);
-    setCoorY(+e.screenY - 140);
+    console.log(`Y: ${e.pageY}`, `X: ${e.pageX}`);
+    if (screen.width > 640) {
+      setCoorX(+e.pageX + 40);
+      setCoorY(+e.pageY - 140);
+    } else {
+      setCoorX(40);
+      setCoorY(+e.pageY + 40);
+    }
     setOrgan(val);
   };
   const onSelectSymptom = (symptom) => {
