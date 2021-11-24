@@ -24,12 +24,12 @@ export default function Slider({ title, onChange }) {
       <h2 className="text-3xl font-semibold text-center mb-8">{title}</h2>
       <div className="w-3/4 mx-auto">
         <div className="text-2xl font-medium ml-12 mb-6">{sliderValue}</div>
-        <div className="flex">
+        <div className="flex items-center">
           <button
             onClick={subtract}
-            className="p-4 bg-gray-50 rounded-full mr-2 border hover:bg-gray-100 cursor-pointer"
+            className="p-2 md:p-4 bg-gray-50 rounded-full mr-2 border hover:bg-gray-100 cursor-pointer"
           >
-            <MinusIcon className="w-6 h-6" />
+            <MinusIcon className="w-3 h-3 md:w-6 md:h-6" />
           </button>
           <input
             className="w-full cursor-pointer"
@@ -41,9 +41,9 @@ export default function Slider({ title, onChange }) {
           />
           <button
             onClick={add}
-            className="p-4 bg-gray-50 rounded-full ml-2 border hover:bg-gray-100 cursor-pointer"
+            className="p-2 md:p-4 bg-gray-50 rounded-full ml-2 border hover:bg-gray-100 cursor-pointer"
           >
-            <PlusIcon className="w-6 h-6" />
+            <PlusIcon className="w-3 h-3 md:w-6 md:h-6" />
           </button>
         </div>
       </div>
