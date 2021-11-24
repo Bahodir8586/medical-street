@@ -3,13 +3,13 @@ export default function Introduction({ submit }) {
     <div className="flex flex-col">
       <div className="flex py-2 h-108">
         <div className="w-full pl-4">
-          <h3 className="font-medium text-2xl mb-4 mt-20">Hello</h3>
+          <h3 className="font-medium text-2xl mb-4 md:mt-20">Hello</h3>
           <p className="text-gray-700 text-sm mb-8">
             You’re about to use a short (3 min), safe and anonymous health checkup. Your answers
             will be carefully analyzed and you’ll learn about possible causes of your symptoms.
           </p>
         </div>
-        <div className="w-full"></div>
+        <div className="hidden md:visible w-full"></div>
       </div>
       <div className="border-t flex justify-end items-center py-4">
         <button

@@ -13,7 +13,7 @@ export default function Layout({ activeEl, ...props }) {
     <>
       <header className="bg-indigo-600">
         <nav className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8" aria-label="Top">
-          <div className="w-full py-6 flex items-center justify-between border-b border-indigo-500 lg:border-none">
+          <div className="w-full py-4 flex items-center justify-between border-b border-indigo-500 lg:border-none">
             <div className="flex items-center">
               <a href="#">
                 <span className="sr-only">Medical Street</span>
@@ -37,7 +37,7 @@ export default function Layout({ activeEl, ...props }) {
                 ))}
               </div>
             </div>
-            <div className="ml-10 space-x-4">
+            <div className="ml-0 md:ml-10 space-x-4">
               <a
                 href="#"
                 className="inline-block bg-indigo-500 py-2 px-4 border border-transparent rounded-md text-base font-medium text-white hover:bg-opacity-75"
@@ -65,7 +65,7 @@ export default function Layout({ activeEl, ...props }) {
           </div>
         </nav>
       </header>
-      <main className="container mx-auto max-w-5xl my-4 py-4 flex min-h-4xl">
+      <main className="container mx-auto max-w-5xl my-4 py-4 flex flex-col md:flex-row min-h-4xl">
         <Sidebar activeIndex={activeEl} />
         <div className="border rounded-lg bg-white w-full p-8">{props.children}</div>
       </main>
