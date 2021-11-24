@@ -4,7 +4,7 @@ export default function MultipleChoiceQuestion({ title, questions, onChange }) {
       <h2 className="text-2xl font-semibold text-center mb-8">{title}</h2>
       <div className="flex flex-col justify-center items-center w-10/12 mx-auto">
         {questions.map((el) => (
-          <div key={el.id} className="flex justify-between mb-4 border-b pb-2 w-full">
+          <div key={el.id} className="flex justify-between mb-4 border-b pb-2 w-full items-center">
             <label className="pr-8 w-96">{el.name}</label>
             <div className="flex w-64">
               {el.choices.map((opt) => (

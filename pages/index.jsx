@@ -17,6 +17,7 @@ export default function Home() {
   const [showSymptoms, setShowSymptoms] = useState(false);
   const [showInterview, setShowInterview] = useState(false);
   const [showResults, setShowResults] = useState(false);
+  const [recommendedSpecialist, setRecommendedSpecialist] = useState(undefined);
   const [activeSidebar, setActiveSidebar] = useState(0);
 
   useEffect(() => {
@@ -93,14 +94,20 @@ export default function Home() {
       evidence: [...patientQuestions, ...symptoms],
     });
   };
-  const submitInterview = async (cons) => {
+  const submitInterview = async (cons, symps) => {
+    console.log(cons);
+    const recSpec = await axios.post(`/recommend_specialist`, symps);
     const newCons = await Promise.all(
       cons.map(async (el) => {
         return await axios.get(`/conditions/${el.id}?age.value=${age}`);
       })
     );
-    console.log(newCons);
-    setConditions(newCons);
+    const actualCons = newCons.map((el, index) => {
+      return { ...el.data, probability: cons[index].probability };
+    });
+    console.log(actualCons);
+    setRecommendedSpecialist(recSpec.data);
+    setConditions(actualCons);
     setShowInterview(false);
     setShowResults(true);
   };
@@ -124,7 +131,13 @@ export default function Home() {
           {showInterview && (
             <Interview submit={submitInterview} initialInterview={initialInterview} />
           )}
-          {showResults && <Results submit={submitResults} conditions={conditions} />}
+          {showResults && (
+            <Results
+              submit={submitResults}
+              recommendedSpecialist={recommendedSpecialist}
+              conditions={conditions}
+            />
+          )}
         </Layout>
       </div>
     </div>

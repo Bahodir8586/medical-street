@@ -23,7 +23,7 @@ export default function Interview({ submit, initialInterview }) {
       setIsLoading(false);
       if (response.data.should_stop) {
         // return;
-        submit(response.data.conditions);
+        submit(response.data.conditions, information);
         return;
       }
       const question = response.data.question;
