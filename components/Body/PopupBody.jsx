@@ -6,7 +6,7 @@ export default function PopupBody({ sex, coorX, coorY, organ, onSelect }) {
   return (
     <div
       style={{ position: 'absolute', top: coorY, left: coorX }}
-      className="w-72 h-56 border  bg-white rounded"
+      className="w-72 h-56 border  bg-white rounded z-30"
     >
       <div className="h-12 flex justify-between items-center px-3 text-lg font-semibold py-3 bg-gray-50 capitalize">
         {organ.replace('_', ' ')}

@@ -9,7 +9,7 @@ export default function Introduction({ submit }) {
             will be carefully analyzed and you’ll learn about possible causes of your symptoms.
           </p>
         </div>
-        <div className="hidden md:visible w-full"></div>
+        <div className="hidden md:block w-full"></div>
       </div>
       <div className="border-t flex justify-end items-center py-4">
         <button

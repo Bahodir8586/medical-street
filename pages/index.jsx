@@ -73,7 +73,6 @@ export default function Home() {
     setShowPatient(true);
   };
   const submitPatient = (sex, age, questions) => {
-    console.log(questions);
     setSex(sex);
     setAge(age);
     setPatientQuestions([...patientQuestions, ...questions]);
@@ -81,8 +80,6 @@ export default function Home() {
     setShowSymptoms(true);
   };
   const submitSymptoms = (symptoms) => {
-    console.log(symptoms);
-    console.log(patientQuestions);
     setShowSymptoms(false);
     setShowInterview(true);
     setSymptoms(symptoms);
@@ -95,7 +92,6 @@ export default function Home() {
     });
   };
   const submitInterview = async (cons, symps) => {
-    console.log(cons);
     const recSpec = await axios.post(`/recommend_specialist`, symps);
     const newCons = await Promise.all(
       cons.map(async (el) => {
@@ -105,7 +101,6 @@ export default function Home() {
     const actualCons = newCons.map((el, index) => {
       return { ...el.data, probability: cons[index].probability };
     });
-    console.log(actualCons);
     setRecommendedSpecialist(recSpec.data);
     setConditions(actualCons);
     setShowInterview(false);

@@ -22,13 +22,20 @@ export default function Symptoms({ sex, age, submit }) {
   const chooseBodyPart = (e, val) => {
     //   Triggered when body part is clicked
     setShowPopup(true);
-    setCoorX(+e.clientX + 40);
-    setCoorY(+e.clientY - 20);
+    console.log(e.clientX, e.clientY);
+    setCoorX(+e.screenX + 40);
+    setCoorY(+e.screenY - 20);
     setOrgan(val);
   };
   const onSelectSymptom = (symptom) => {
+    if (!symptom) {
+      setShowPopup(false);
+      setSearchValue('');
+      setShowResults(false);
+      return;
+    }
     const alreadyExist = Boolean(symptoms.find((el) => el.id === symptom.id));
-    if (alreadyExist || !symptom) {
+    if (alreadyExist) {
       return;
     }
     setSearchValue('');
@@ -74,7 +81,7 @@ export default function Symptoms({ sex, age, submit }) {
       {showPopup && (
         <PopupBody sex={sex} coorX={coorX} coorY={coorY} organ={organ} onSelect={onSelectSymptom} />
       )}
-      <div className="flex py-8 h-108">
+      <div className="flex flex-col md:flex-row py-0 md:py-8 min-h-108">
         <div className="w-full pl-4">
           {/* TODO: Title input and badges of symptoms */}
           <h3 className="font-medium text-2xl mb-2">Add Symptoms</h3>
@@ -139,7 +146,7 @@ export default function Symptoms({ sex, age, submit }) {
             )}
           </div>
         </div>
-        <div className="w-full flex flex-col justify-center items-center">
+        <div className="w-full flex flex-col justify-center items-center my-4 md:my-0">
           {sex === 'female' && showFront && (
             <BodyFrontFemale onClick={(e, val) => chooseBodyPart(e, val)} />
           )}

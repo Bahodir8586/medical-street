@@ -22,7 +22,7 @@ export default function Slider({ title, onChange }) {
   return (
     <div className="flex flex-col items-center justify-center h-108">
       <h2 className="text-3xl font-semibold text-center mb-8">{title}</h2>
-      <div className="w-3/4 mx-auto">
+      <div className="w-full md:w-3/4 mx-auto">
         <div className="text-2xl font-medium ml-12 mb-6">{sliderValue}</div>
         <div className="flex items-center">
           <button

@@ -1,7 +1,6 @@
 import { useState } from 'react';
 export default function SelectQuestion({ title, choices, onChange }) {
   const [selectedValue, setSelectedValue] = useState(undefined);
-  console.log(title, choices);
   return (
     <div className="flex flex-col items-center justify-center h-108">
       <h2 className="text-3xl font-semibold text-center mb-4">{title}</h2>

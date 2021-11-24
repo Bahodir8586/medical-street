@@ -53,7 +53,7 @@ export default function TermsOfService({ submit }) {
             </div>
           </div>
         </div>
-        <div className="hidden md:visible w-full"></div>
+        <div className="hidden md:block w-full"></div>
       </div>
       <div className="border-t flex justify-end items-center py-4">
         <button
