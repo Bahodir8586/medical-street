@@ -24,7 +24,7 @@ export default function Symptoms({ sex, age, submit }) {
     setShowPopup(true);
     console.log(e.clientX, e.clientY);
     setCoorX(+e.screenX + 40);
-    setCoorY(+e.screenY - 20);
+    setCoorY(+e.screenY - 140);
     setOrgan(val);
   };
   const onSelectSymptom = (symptom) => {
