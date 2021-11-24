@@ -1,10 +1,9 @@
-import { useState, useEffect, useMemo, useCallback } from 'react';
-import { debounce } from 'lodash';
+import { useState } from 'react';
 
 import BodyFrontMale from '@/components/Body/FrontBody/BodyMale';
-import BodyFrontFemale from '@/components/Body/FrontBody/BodyFeMale';
+import BodyFrontFemale from '@/components/Body/FrontBody/BodyFemale';
 import BodyBackMale from '@/components/Body/BackBody/BodyMale';
-import BodyBackFemale from '@/components/Body/BackBody/BodyFeMale';
+import BodyBackFemale from '@/components/Body/BackBody/BodyFemale';
 import PopupBody from '../Body/PopupBody';
 import axios from '@/utils/axios';
 

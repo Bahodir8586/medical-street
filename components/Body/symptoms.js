@@ -14,6 +14,7 @@ export const symptoms = {
       { id: 's_156', label: 'Feeling sick or queasy' },
       { id: 's_121', label: 'Hair loss' },
       { id: 's_1808', label: 'Skin changes located on the face' },
+      { id: 's_2088', label: 'Recent head injury' },
     ],
     ears: [
       { id: 's_47', label: 'Earache' },
@@ -22,6 +23,7 @@ export const symptoms = {
       { id: 's_276', label: 'Clogged ear' },
       { id: 's_255', label: 'Itching in ear' },
       { id: 's_407', label: 'Ringing in ears' },
+      { id: 's_2088', label: 'Ear injury' },
     ],
     eyes: [
       { id: 's_493', label: 'Eye pain' },
@@ -41,6 +43,7 @@ export const symptoms = {
       { id: 's_489', label: 'Dry discharge on eyelids' },
       { id: 's_606', label: 'Eye flashes' },
       { id: 's_488', label: 'Light sensitivity' },
+      { id: 's_2088', label: 'Serious eye injury' },
     ],
     nose: [
       { id: 's_1605', label: 'Nose pain' },
@@ -55,6 +58,7 @@ export const symptoms = {
       { id: 's_1436', label: 'Sinus pain or pressure' },
       { id: 's_1429', label: 'Bleeding from nose' },
       { id: 's_1471', label: 'Mucus dripping at the back of the throat' },
+      { id: 's_2088', label: 'Nose injury' },
     ],
     oral_cavity: [
       { id: 's_694', label: 'Dermatological changes inside the mouth' },
@@ -75,6 +79,7 @@ export const symptoms = {
       { id: 's_310', label: 'Increased thirst' },
       { id: 's_610', label: 'White spots on tonsils' },
       { id: 's_88', label: 'Shortness of breath' },
+      { id: 's_2088', label: 'Lip injury' },
     ],
     neck_or_throat: [
       { id: 's_20', label: 'Sore throat' },
@@ -93,6 +98,7 @@ export const symptoms = {
       { id: 's_363', label: 'Swollen neck' },
       { id: 's_418', label: 'Stiff neck' },
       { id: 's_671', label: 'Widened neck veins' },
+      { id: 's_2088', label: 'Neck injury' },
     ],
     chest: [
       { id: 's_586', label: 'Breast enlargement in man' },
@@ -108,6 +114,7 @@ export const symptoms = {
       { id: 's_1462', label: 'Shallow breathing' },
       { id: 's_227', label: 'Accelerated breathing' },
       { id: 's_474', label: 'Whistling sound made while breathing' },
+      { id: 's_2088', label: 'Chest injury' },
     ],
     upper_arm: [
       { id: 's_580', label: 'Pain in upper limb' },
@@ -122,6 +129,7 @@ export const symptoms = {
       { id: 's_973', label: 'Numbness of both upper limbs' },
       { id: 's_972', label: 'Loss of feeling in both arms' },
       { id: 's_1426', label: 'Spasms in upper extremities' },
+      { id: 's_2088', label: 'Arm injury' },
     ],
     forearm: [
       { id: 's_580', label: 'Pain in upper limb' },
@@ -139,6 +147,7 @@ export const symptoms = {
       { id: 's_1910', label: 'Dropping hand' },
       { id: 's_972', label: 'Loss of feeling in both arms' },
       { id: 's_1426', label: 'Spasms in upper extremities' },
+      { id: 's_2088', label: 'Forearm injury' },
     ],
     hand: [
       { id: 's_1430', label: 'Wrist pain' },
@@ -159,6 +168,7 @@ export const symptoms = {
       { id: 's_564', label: 'Loss of muscles in hands' },
       { id: 's_258', label: 'Morning stiffness of hand joints' },
       { id: 's_556', label: 'Cold hands or fingers' },
+      { id: 's_2088', label: 'Hand injury' },
     ],
     upper_abdomen: [
       { id: 's_13', label: 'Stomach pain' },
@@ -179,6 +189,7 @@ export const symptoms = {
       { id: 's_1432', label: 'Indigestion' },
       { id: 's_306', label: 'Vomiting blood' },
       { id: 's_285', label: 'Weight loss' },
+      { id: 's_2088', label: 'Recent abdominal injury' },
     ],
     middle_abdomen: [
       { id: 's_13', label: 'Stomach pain' },
@@ -197,6 +208,7 @@ export const symptoms = {
       { id: 's_156', label: 'Feeling sick or queasy' },
       { id: 's_71', label: 'Black stools' },
       { id: 's_112', label: 'Blood in stool' },
+      { id: 's_2088', label: 'Recent abdominal injury' },
     ],
     lower_abdomen: [
       { id: 's_13', label: 'Stomach pain' },
@@ -215,6 +227,7 @@ export const symptoms = {
       { id: 's_8', label: 'Diarrhea' },
       { id: 's_71', label: 'Black stools' },
       { id: 's_112', label: 'Blood in stool' },
+      { id: 's_2088', label: 'Recent abdominal injury' },
     ],
     sexual_organs: [
       { id: 's_369', label: 'Discharge from urethra' },
@@ -257,6 +270,7 @@ export const symptoms = {
       { id: 's_2001', label: 'Numbness in one lower limb' },
       { id: 's_1063', label: 'Numbness of both lower limbs' },
       { id: 's_73', label: 'Red stretch marks on stomach, hips, or thighs' },
+      { id: 's_2088', label: 'Thigh injury' },
     ],
     knee: [
       { id: 's_579', label: 'Pain in lower limb' },
@@ -270,6 +284,7 @@ export const symptoms = {
       { id: 's_170', label: 'Swollen knee' },
       { id: 's_238', label: 'Slower walk' },
       { id: 's_270', label: 'Creaking joints during movement' },
+      { id: 's_2088', label: 'Knee injury' },
     ],
     lower_leg: [
       { id: 's_579', label: 'Pain in lower limb' },
@@ -286,6 +301,7 @@ export const symptoms = {
       { id: 's_117', label: 'Cramps in calves' },
       { id: 's_273', label: 'Heavy legs at the end of the day' },
       { id: 's_313', label: 'Loss of feeling in only one arm or leg' },
+      { id: 's_2088', label: 'Lower leg injury' },
     ],
     foot: [
       { id: 's_578', label: 'Foot pain' },
@@ -306,6 +322,7 @@ export const symptoms = {
       { id: 's_408', label: 'Cold feet and toes' },
       { id: 's_1909', label: 'Dropping the front of the foot' },
       { id: 's_2092', label: 'Feet pain' },
+      { id: 's_2088', label: 'Foot injury' },
     ],
     elbow: [
       { id: 's_580', label: 'Pain in upper limb' },
@@ -313,6 +330,7 @@ export const symptoms = {
       { id: 's_1632', label: 'Elbow pain' },
       { id: 's_1634', label: 'Elbow pain when moving it' },
       { id: 's_1635', label: 'Swollen elbow' },
+      { id: 's_2088', label: 'Elbow injury' },
     ],
     anus: [
       { id: 's_436', label: 'Anorectal pain' },
@@ -342,6 +360,7 @@ export const symptoms = {
       { id: 's_257', label: 'Stiffness of spine in the morning' },
       { id: 's_1536', label: 'Spine asymmetry' },
       { id: 's_186', label: 'Difficulty bending down' },
+      { id: 's_2088', label: 'Back injury' },
     ],
     lower_back: [
       { id: 's_1190', label: 'Back pain' },
@@ -357,6 +376,7 @@ export const symptoms = {
       { id: 's_1486', label: 'Paraspinal muscle tenderness' },
       { id: 's_186', label: 'Difficulty bending down' },
       { id: 's_257', label: 'Stiffness of spine in the morning' },
+      { id: 's_2088', label: 'Back injury' },
     ],
     buttocks: [
       { id: 's_1918', label: 'Buttocks pain' },
@@ -394,6 +414,7 @@ export const symptoms = {
       { id: 's_156', label: 'Feeling sick or queasy' },
       { id: 's_121', label: 'Hair loss' },
       { id: 's_1808', label: 'Skin changes located on the face' },
+      { id: 's_2088', label: 'Head injury' },
     ],
     ears: [
       { id: 's_47', label: 'Earache' },
@@ -402,6 +423,7 @@ export const symptoms = {
       { id: 's_276', label: 'Clogged ear' },
       { id: 's_255', label: 'Itching in ear' },
       { id: 's_407', label: 'Ringing in ears' },
+      { id: 's_2088', label: 'Ear injury' },
     ],
     eyes: [
       { id: 's_493', label: 'Eye pain' },
@@ -421,6 +443,7 @@ export const symptoms = {
       { id: 's_489', label: 'Dry discharge on eyelids' },
       { id: 's_606', label: 'Eye flashes' },
       { id: 's_488', label: 'Light sensitivity' },
+      { id: 's_2088', label: 'Serious eye injury' },
     ],
     nose: [
       { id: 's_1605', label: 'Nose pain' },
@@ -435,6 +458,7 @@ export const symptoms = {
       { id: 's_1436', label: 'Sinus pain or pressure' },
       { id: 's_1429', label: 'Bleeding from nose' },
       { id: 's_1471', label: 'Mucus dripping at the back of the throat' },
+      { id: 's_2088', label: 'Nose injury' },
     ],
     oral_cavity: [
       { id: 's_694', label: 'Dermatological changes inside the mouth' },
@@ -455,6 +479,7 @@ export const symptoms = {
       { id: 's_310', label: 'Increased thirst' },
       { id: 's_610', label: 'White spots on tonsils' },
       { id: 's_88', label: 'Shortness of breath' },
+      { id: 's_2088', label: 'Lip injury' },
     ],
     neck_or_throat: [
       { id: 's_20', label: 'Sore throat' },
@@ -473,6 +498,7 @@ export const symptoms = {
       { id: 's_363', label: 'Swollen neck' },
       { id: 's_418', label: 'Stiff neck' },
       { id: 's_671', label: 'Widened neck veins' },
+      { id: 's_2088', label: 'Neck injury' },
     ],
     chest: [
       { id: 's_50', label: 'Chest pain' },
@@ -487,6 +513,7 @@ export const symptoms = {
       { id: 's_1462', label: 'Shallow breathing' },
       { id: 's_227', label: 'Accelerated breathing' },
       { id: 's_474', label: 'Whistling sound made while breathing' },
+      { id: 's_2088', label: 'Chest injury' },
     ],
     breasts: [
       { id: 's_1480', label: 'Pain in both breasts when pressed' },
@@ -512,6 +539,7 @@ export const symptoms = {
       { id: 's_973', label: 'Numbness of both upper limbs' },
       { id: 's_972', label: 'Loss of feeling in both arms' },
       { id: 's_1426', label: 'Spasms in upper extremities' },
+      { id: 's_2088', label: 'Arm injury' },
     ],
     forearm: [
       { id: 's_580', label: 'Pain in upper limb' },
@@ -529,6 +557,7 @@ export const symptoms = {
       { id: 's_1910', label: 'Dropping hand' },
       { id: 's_972', label: 'Loss of feeling in both arms' },
       { id: 's_1426', label: 'Spasms in upper extremities' },
+      { id: 's_2088', label: 'Forearm injury' },
     ],
     hand: [
       { id: 's_1430', label: 'Wrist pain' },
@@ -549,6 +578,7 @@ export const symptoms = {
       { id: 's_564', label: 'Loss of muscles in hands' },
       { id: 's_258', label: 'Morning stiffness of hand joints' },
       { id: 's_556', label: 'Cold hands or fingers' },
+      { id: 's_2088', label: 'Hand injury' },
     ],
     upper_abdomen: [
       { id: 's_13', label: 'Stomach pain' },
@@ -569,6 +599,7 @@ export const symptoms = {
       { id: 's_1432', label: 'Indigestion' },
       { id: 's_306', label: 'Vomiting blood' },
       { id: 's_285', label: 'Weight loss' },
+      { id: 's_2088', label: 'Recent abdominal injury' },
     ],
     middle_abdomen: [
       { id: 's_17', label: 'Cramps before period' },
@@ -588,6 +619,7 @@ export const symptoms = {
       { id: 's_156', label: 'Feeling sick or queasy' },
       { id: 's_71', label: 'Black stools' },
       { id: 's_112', label: 'Blood in stool' },
+      { id: 's_2088', label: 'Recent abdominal injury' },
     ],
     lower_abdomen: [
       { id: 's_13', label: 'Stomach pain' },
@@ -606,6 +638,7 @@ export const symptoms = {
       { id: 's_8', label: 'Diarrhea' },
       { id: 's_71', label: 'Black stools' },
       { id: 's_112', label: 'Blood in stool' },
+      { id: 's_2088', label: 'Recent abdominal injury' },
     ],
     sexual_organs: [
       { id: 's_328', label: 'Abnormal vaginal discharge' },
@@ -648,6 +681,7 @@ export const symptoms = {
       { id: 's_2001', label: 'Numbness in one lower limb' },
       { id: 's_1063', label: 'Numbness of both lower limbs' },
       { id: 's_73', label: 'Red stretch marks on stomach, hips, or thighs' },
+      { id: 's_2088', label: 'Thigh injury' },
     ],
     knee: [
       { id: 's_579', label: 'Pain in lower limb' },
@@ -661,6 +695,7 @@ export const symptoms = {
       { id: 's_170', label: 'Swollen knee' },
       { id: 's_238', label: 'Slower walk' },
       { id: 's_270', label: 'Creaking joints during movement' },
+      { id: 's_2088', label: 'Knee injury' },
     ],
     lower_leg: [
       { id: 's_579', label: 'Pain in lower limb' },
@@ -677,6 +712,7 @@ export const symptoms = {
       { id: 's_117', label: 'Cramps in calves' },
       { id: 's_273', label: 'Heavy legs at the end of the day' },
       { id: 's_313', label: 'Loss of feeling in only one arm or leg' },
+      { id: 's_2088', label: 'Lower leg injury' },
     ],
     foot: [
       { id: 's_578', label: 'Foot pain' },
@@ -697,6 +733,7 @@ export const symptoms = {
       { id: 's_408', label: 'Cold feet and toes' },
       { id: 's_1909', label: 'Dropping the front of the foot' },
       { id: 's_2092', label: 'Feet pain' },
+      { id: 's_2088', label: 'Foot injury' },
     ],
     elbow: [
       { id: 's_580', label: 'Pain in upper limb' },
@@ -704,6 +741,7 @@ export const symptoms = {
       { id: 's_1632', label: 'Elbow pain' },
       { id: 's_1634', label: 'Elbow pain when moving it' },
       { id: 's_1635', label: 'Swollen elbow' },
+      { id: 's_2088', label: 'Elbow injury' },
     ],
     anus: [
       { id: 's_436', label: 'Anorectal pain' },
@@ -734,6 +772,7 @@ export const symptoms = {
       { id: 's_257', label: 'Stiffness of spine in the morning' },
       { id: 's_1536', label: 'Spine asymmetry' },
       { id: 's_186', label: 'Difficulty bending down' },
+      { id: 's_2088', label: 'Back injury' },
     ],
     lower_back: [
       { id: 's_1190', label: 'Back pain' },
@@ -749,6 +788,7 @@ export const symptoms = {
       { id: 's_1486', label: 'Paraspinal muscle tenderness' },
       { id: 's_186', label: 'Difficulty bending down' },
       { id: 's_257', label: 'Stiffness of spine in the morning' },
+      { id: 's_2088', label: 'Back injury' },
     ],
     buttocks: [
       { id: 's_1918', label: 'Buttocks pain' },
