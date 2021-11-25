@@ -1,4 +1,4 @@
-import  useTranslation  from 'next-translate/useTranslation';
+import useTranslation from 'next-translate/useTranslation';
 import { useState, useMemo } from 'react';
 import { useRouter } from 'next/router';
 
@@ -40,6 +40,7 @@ export default function Patient({ submit }) {
           headers: { Model: `infermedica-${locale}` },
         }
       );
+      console.log(response.data);
       const newQuestions = response.data.map((el) => {
         return {
           id: el.id,
@@ -48,15 +49,15 @@ export default function Patient({ submit }) {
           choices: [
             {
               id: 'present',
-              label: 'Yes',
+              label: 'yes',
             },
             {
               id: 'absent',
-              label: 'No',
+              label: 'no',
             },
             {
               id: 'unknown',
-              label: "Don't know",
+              label: "don't know",
             },
           ],
         };

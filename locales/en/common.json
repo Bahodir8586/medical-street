@@ -1,3 +1,6 @@
 {
-    "hello":"Hello"
+    "hello":"Hello",
+    "yes":"yes",
+    "no":"no",
+    "don't know":"don't know"
 }

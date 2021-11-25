@@ -1,3 +1,6 @@
 {
-    "hello":"Salom"
+    "hello":"Salom",
+    "yes":"ha",
+    "no":"yo'q",
+    "don't know":"bilmayman"
 }
