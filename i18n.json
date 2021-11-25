@@ -1,0 +1,7 @@
+{
+    "locales": ["en", "ru", "uz"],
+    "defaultLocale": "ru",
+    "pages": {
+      "*": ["common","symptoms","conditions"]
+    }
+  }

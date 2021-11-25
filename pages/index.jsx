@@ -1,5 +1,7 @@
 import Head from 'next/head';
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useMemo } from 'react';
+import useTranslation from 'next-translate/useTranslation';
+import { useRouter } from 'next/router';
 
 import Interview from '@/components/Home/Interview';
 import Introduction from '@/components/Home/Introduction';
@@ -11,6 +13,9 @@ import Layout from '@/components/Layouts/HomeLayout';
 import axios from '@/utils/axios';
 
 export default function Home() {
+  const { t, lang } = useTranslation('common');
+  const router = useRouter();
+  const locale = useMemo(() => router.locale, [router.locale]);
   const [showIntro, setShowIntro] = useState(true);
   const [showTerms, setShowTerms] = useState(false);
   const [showPatient, setShowPatient] = useState(false);
@@ -92,10 +97,14 @@ export default function Home() {
     });
   };
   const submitInterview = async (cons, symps) => {
-    const recSpec = await axios.post(`/recommend_specialist`, symps);
+    const recSpec = await axios.post(`/recommend_specialist`, symps, {
+      headers: { Model: `infermedica-${locale}` },
+    });
     const newCons = await Promise.all(
       cons.map(async (el) => {
-        return await axios.get(`/conditions/${el.id}?age.value=${age}`);
+        return await axios.get(`/conditions/${el.id}?age.value=${age}`, {
+          headers: { Model: `infermedica-${locale}` },
+        });
       })
     );
     const actualCons = newCons.map((el, index) => {
