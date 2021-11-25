@@ -1,10 +1,16 @@
-import { useState } from 'react';
+import { useTranslation } from 'next-translate/useTranslation';
+import { useState, useMemo } from 'react';
+import { useRouter } from 'next/router';
+
 import SelectQuestion from '@/components/Questions/SelectQuestion';
 import MultipleChoiceQuestion from '@/components/Questions/MultipleChoiceQuestion';
 import Slider from '@/components/Questions/Slider';
 import axios from '@/utils/axios';
 
 export default function Patient({ submit }) {
+  const { t, lang } = useTranslation('common');
+  const router = useRouter();
+  const locale = useMemo(() => router.locale, [router.locale]);
   const [sex, setSex] = useState(undefined);
   const [age, setAge] = useState(25);
   const [questions, setQuestions] = useState([]);
@@ -23,11 +29,17 @@ export default function Patient({ submit }) {
       return;
     }
     if (showAge) {
-      const response = await axios.post('/suggest', {
-        sex,
-        age: { value: age },
-        suggest_method: 'risk_factors',
-      });
+      const response = await axios.post(
+        '/suggest',
+        {
+          sex,
+          age: { value: age },
+          suggest_method: 'risk_factors',
+        },
+        {
+          headers: { Model: `infermedica-${locale}` },
+        }
+      );
       const newQuestions = response.data.map((el) => {
         return {
           id: el.id,

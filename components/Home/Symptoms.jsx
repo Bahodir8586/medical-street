@@ -1,4 +1,6 @@
-import { useState } from 'react';
+import { useTranslation } from 'next-translate/useTranslation';
+import { useState, useMemo } from 'react';
+import { useRouter } from 'next/router';
 
 import BodyFrontMale from '@/components/Body/FrontBody/BodyMale';
 import BodyFrontFemale from '@/components/Body/FrontBody/BodyFemale';
@@ -8,6 +10,9 @@ import PopupBody from '../Body/PopupBody';
 import axios from '@/utils/axios';
 
 export default function Symptoms({ sex, age, submit }) {
+  const { t, lang } = useTranslation('common');
+  const router = useRouter();
+  const locale = useMemo(() => router.locale, [router.locale]);
   const [showFront, setShowFront] = useState(true);
   const [organ, setOrgan] = useState(undefined);
   const [showPopup, setShowPopup] = useState(false);
@@ -63,7 +68,10 @@ export default function Symptoms({ sex, age, submit }) {
     console.log('running');
     try {
       const response = await axios.get(
-        `/search?phrase=${searchValue}&age.value=${age}&sex=${sex}&max_results=25&types=symptom`
+        `/search?phrase=${searchValue}&age.value=${age}&sex=${sex}&max_results=25&types=symptom`,
+        {
+          headers: { Model: `infermedica-${locale}` },
+        }
       );
       setSearchResults(response.data);
       setShowResults(true);
