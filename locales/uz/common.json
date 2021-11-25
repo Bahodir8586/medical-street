@@ -2,5 +2,7 @@
     "hello":"Salom",
     "yes":"ha",
     "no":"yo'q",
-    "don't know":"bilmayman"
+    "don't know":"bilmayman",
+    "next":"keyingisi",
+    "finish":"tugatish"
 }

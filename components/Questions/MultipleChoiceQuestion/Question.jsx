@@ -15,7 +15,7 @@ export default function MultipleChoiceQuestion({ title, questions, onChange }) {
               {el.choices.map((opt) => (
                 <div key={opt.id} className="mx-2 mt-2 md:mt-0 ">
                   <input type="radio" name={el.id} onChange={() => onChange(el.id, opt.id)} />
-                  <label className="mx-1 capitalize">{t(opt.label)}</label>
+                  <label className="mx-1 capitalize">{opt.label}</label>
                 </div>
               ))}
             </div>

@@ -1,4 +1,6 @@
+import useTranslation from 'next-translate/useTranslation';
 export default function Results({ submit, conditions, recommendedSpecialist }) {
+  const { t, lang } = useTranslation('common');
   console.log(conditions);
   return (
     <div className="flex flex-col">
@@ -58,9 +60,9 @@ export default function Results({ submit, conditions, recommendedSpecialist }) {
       <div className="border-t flex justify-end items-center pt-4">
         <button
           onClick={submit}
-          className="inline-flex items-center px-6 py-2 border border-transparent text-sm font-medium rounded-md shadow-sm text-white bg-green-600 hover:bg-green-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-green-500"
+          className="inline-flex items-center px-6 py-2 border border-transparent text-sm font-medium rounded-md shadow-sm text-white bg-green-600 hover:bg-green-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-green-500 capitalize"
         >
-          Finish
+          {t('finish')}
         </button>
       </div>
     </div>

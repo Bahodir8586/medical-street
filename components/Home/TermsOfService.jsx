@@ -1,3 +1,4 @@
+import useTranslation from 'next-translate/useTranslation';
 import { useState } from 'react';
 import Link from 'next/link';
 
@@ -7,6 +8,7 @@ const termsOfService = [
   'Your data is safe. Information that you provide is anonymous and not shared with anyone.',
 ];
 export default function TermsOfService({ submit }) {
+  const { t, lang } = useTranslation('common');
   const [accepted, setAccepted] = useState(false);
   const submitTerms = () => {
     if (!accepted) {
@@ -58,9 +60,9 @@ export default function TermsOfService({ submit }) {
       <div className="border-t flex justify-end items-center py-4">
         <button
           onClick={submitTerms}
-          className="inline-flex items-center px-6 py-2 border border-transparent text-sm font-medium rounded-md shadow-sm text-white bg-green-600 hover:bg-green-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-green-500"
+          className="inline-flex items-center px-6 py-2 border border-transparent text-sm font-medium rounded-md shadow-sm text-white bg-green-600 hover:bg-green-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-green-500 capitalize"
         >
-          Next
+          {t('next')}
         </button>
       </div>
     </div>

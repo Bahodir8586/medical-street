@@ -49,15 +49,15 @@ export default function Patient({ submit }) {
           choices: [
             {
               id: 'present',
-              label: 'yes',
+              label: t('yes'),
             },
             {
               id: 'absent',
-              label: 'no',
+              label: t('no'),
             },
             {
               id: 'unknown',
-              label: "don't know",
+              label: t("don't know"),
             },
           ],
         };
@@ -115,9 +115,9 @@ export default function Patient({ submit }) {
       <div className="border-t flex justify-end items-center py-4">
         <button
           onClick={submitPatient}
-          className="inline-flex items-center px-6 py-2 border border-transparent text-sm font-medium rounded-md shadow-sm text-white bg-green-600 hover:bg-green-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-green-500"
+          className="inline-flex items-center px-6 py-2 border border-transparent text-sm font-medium rounded-md shadow-sm text-white bg-green-600 hover:bg-green-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-green-500 capitalize"
         >
-          Next
+          {t('next')}
         </button>
       </div>
     </div>
