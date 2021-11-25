@@ -1,10 +1,15 @@
-import { useEffect, useState, useCallback } from 'react';
+import useTranslation from 'next-translate/useTranslation';
+import { useEffect, useState, useCallback, useMemo } from 'react';
+import { useRouter } from 'next/router';
 
 import MultipleChoiceQuestion from '@/components/Questions/MultipleChoiceQuestion/';
 import SelectQuestion from '@/components/Questions/SelectQuestion';
 import axios from '@/utils/axios';
 
 export default function Interview({ submit, initialInterview }) {
+  const { t, lang } = useTranslation('common');
+  const router = useRouter();
+  const locale = useMemo(() => router.locale, [router.locale]);
   const [isLoading, setIsLoading] = useState(false);
   const [information, setInformation] = useState(initialInterview);
   const [showMultiple, setShowMultiple] = useState(false);
@@ -18,7 +23,9 @@ export default function Interview({ submit, initialInterview }) {
     setShowSelect(false);
     setIsLoading(true);
     try {
-      const response = await axios.post('/diagnosis', information);
+      const response = await axios.post('/diagnosis', information, {
+        headers: { Model: `infermedica-${locale}` },
+      });
       console.log(response.data);
       setIsLoading(false);
       if (response.data.should_stop) {

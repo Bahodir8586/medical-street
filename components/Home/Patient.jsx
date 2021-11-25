@@ -1,4 +1,4 @@
-import { useTranslation } from 'next-translate/useTranslation';
+import  useTranslation  from 'next-translate/useTranslation';
 import { useState, useMemo } from 'react';
 import { useRouter } from 'next/router';
 
