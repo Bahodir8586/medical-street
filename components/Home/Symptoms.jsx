@@ -103,7 +103,7 @@ export default function Symptoms({ sex, age, submit }) {
                 clearTimeout(timeOutId);
                 const funcId = setTimeout(() => {
                   search();
-                }, 2000);
+                }, 1500);
                 setSearchValue(e.target.value);
                 setTimeOutId(funcId);
               }}
