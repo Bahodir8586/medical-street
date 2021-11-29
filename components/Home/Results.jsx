@@ -10,24 +10,26 @@ export default function Results({ submit, conditions, recommendedSpecialist }) {
         </div>
       ) : (
         <div className="flex py-2 flex-col mb-8">
-          <div className="mb-3">
+          <div className="mb-3 flex flex-col md:flex-row md:items-center">
             {t('Recommended specialist')}:{' '}
             <span className="ml-2 font-medium text-xl capitalize">
               {recommendedSpecialist.recommended_specialist.name}
             </span>
           </div>
-          <div className="mb-3">
+          <div className="mb-3 flex flex-col md:flex-row md:items-center">
             {t('Recommended visit type')}:{' '}
             <span className="ml-2 font-medium text-xl capitalize">
               {recommendedSpecialist.recommended_channel?.replaceAll('_', ' ')}
             </span>
           </div>
-          {conditions.map((el) => (
+          {conditions.map((el, index) => (
             <div key={el.id} className="w-full mb-4">
-              <div className="flex">
-                <h3 className="text-xl font-semibold pl-6 mb-2 w-full">{el.common_name}</h3>
+              <div className="flex flex-col md:flex-row">
+                <h3 className="text-lg md:text-xl font-semibold md:pl-6 mb-2 w-full">
+                  {index + 1} {el.common_name}
+                </h3>
                 <div className="w-full flex items-center justify-start">
-                  <div className="relative w-40 h-4 bg-gray-200 rounded">
+                  <div className="relative w-20 md:w-40 h-4 bg-gray-200 rounded">
                     <div
                       className="absolute top-0 h-4 left-0 bg-blue-500 rounded"
                       style={{ width: `${100 * el.probability}%` }}
@@ -38,7 +40,7 @@ export default function Results({ submit, conditions, recommendedSpecialist }) {
                   </span>
                 </div>
               </div>
-              <div className="flex capitalize">
+              <div className="flex capitalize flex-col md:flex-row">
                 <div className="w-full px-3">
                   <li className="capitalize">
                     {t('Prevalence')}: {el.prevalence.replaceAll('_', ' ')}

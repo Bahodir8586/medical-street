@@ -113,7 +113,7 @@ export default function Symptoms({ sex, age, submit }) {
                 setTimeOutId(funcId);
               }}
               className="shadow-sm focus:ring-indigo-500 focus:border-indigo-500 block w-full sm:text-sm border-gray-300 rounded-md"
-              placeholder={t('Search, e.g. headache')}
+              placeholder={t('search placeholder')}
             />
             {showResults && (
               <div className="w-full h-56 bg-gray-100 absolute top-10 overflow-auto">
@@ -131,7 +131,7 @@ export default function Symptoms({ sex, age, submit }) {
           </div>
           <div className="mt-4 h-48 w-full bg-gray-200 rounded overflow-auto">
             {symptoms.length === 0 ? (
-              <p className="mx-auto py-20 text-center">{t('add more symptoms')}</p>
+              <p className="mx-auto py-16 text-center">{t('add more symptoms')}</p>
             ) : (
               <div className="py-2 px-1">
                 {symptoms.map((el) => (

@@ -33,14 +33,14 @@ export default function Layout({ activeEl, ...props }) {
                   <a
                     key={link.name}
                     href={link.href}
-                    className="text-base font-medium text-white hover:text-indigo-50"
+                    className="text-base capitalize font-medium text-white hover:text-indigo-50"
                   >
                     {t(link.name)}
                   </a>
                 ))}
               </div>
             </div>
-            <div className="ml-0 md:ml-10 space-x-4">
+            <div className="ml-0 md:ml-10 space-x-4 flex">
               <a
                 href="#"
                 className="inline-block bg-indigo-500 py-2 px-4 border border-transparent rounded-md text-base font-medium text-white hover:bg-opacity-75 capitalize"
@@ -60,7 +60,7 @@ export default function Layout({ activeEl, ...props }) {
               <a
                 key={link.name}
                 href={link.href}
-                className="text-base font-medium text-white hover:text-indigo-50"
+                className="text-base capitalize font-medium text-white hover:text-indigo-50"
               >
                 {link.name}
               </a>

@@ -13,7 +13,7 @@ export default function SelectQuestion({ title, choices, onChange }) {
               setSelectedValue(el.label);
               onChange(el.id);
             }}
-            className="mx-3 rounded-md border shadow-md bg-gray-50 w-36 h-36 flex justify-center items-center cursor-pointer text-lg hover:bg-gray-100 capitalize"
+            className="mx-3 rounded-md border shadow-md bg-gray-50 w-24 h-18 md:w-36 md:h-36 flex justify-center items-center cursor-pointer text-lg hover:bg-gray-100 capitalize"
           >
             {el.label}
           </div>

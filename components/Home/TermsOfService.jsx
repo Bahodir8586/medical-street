@@ -14,7 +14,7 @@ export default function TermsOfService({ submit }) {
   };
   return (
     <div className="flex flex-col">
-      <div className="flex py-2 h-108">
+      <div className="flex py-2 min-h-108">
         <div className="w-full pl-4">
           <h3 className="font-medium text-2xl mb-4">{t('terms and conditions')}</h3>
           <p className="text-gray-700 text-sm mb-8">{t('terms text')}</p>
