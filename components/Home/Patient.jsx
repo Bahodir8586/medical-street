@@ -94,22 +94,22 @@ export default function Patient({ submit }) {
     <div className="flex flex-col">
       {showSex && (
         <SelectQuestion
-          title="What is your sex?"
+          title={`${t('What is your sex')}?`}
           onChange={(val) => {
             setSex(val);
           }}
           choices={[
-            { id: 'female', label: 'Female' },
-            { id: 'male', label: 'Male' },
+            { id: 'female', label: t('female') },
+            { id: 'male', label: t('male') },
           ]}
         />
       )}
-      {showAge && <Slider title="How old are you?" onChange={(val) => setAge(val)} />}
+      {showAge && <Slider title={`${t('How old are you')}?`} onChange={(val) => setAge(val)} />}
       {showQuestions && (
         <MultipleChoiceQuestion
           questions={questions}
           onChange={(questionId, answerId) => multiSelectHandler(questionId, answerId)}
-          title="Please check all the statements below that apply to you."
+          title={t('Please check all')}
         />
       )}
       <div className="border-t flex justify-end items-center py-4">
