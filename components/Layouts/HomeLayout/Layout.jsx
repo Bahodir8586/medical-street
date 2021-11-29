@@ -1,14 +1,16 @@
-/* This example requires Tailwind CSS v2.0+ */
+import useTranslation from 'next-translate/useTranslation';
 import Image from 'next/image';
+
 import Sidebar from './Sidebar';
+
 const navigation = [
-  { name: 'Solutions', href: '#' },
-  { name: 'Pricing', href: '#' },
-  { name: 'Docs', href: '#' },
-  { name: 'Company', href: '#' },
+  { name: 'pricing', href: '#' },
+  { name: 'company', href: '#' },
+  { name: 'terms and conditions', href: '#' },
 ];
 
 export default function Layout({ activeEl, ...props }) {
+  const { t, lang } = useTranslation('common');
   return (
     <>
       <header className="bg-indigo-600">
@@ -30,9 +32,9 @@ export default function Layout({ activeEl, ...props }) {
                   <a
                     key={link.name}
                     href={link.href}
-                    className="text-base font-medium text-white hover:text-indigo-50"
+                    className="text-base capitalize font-medium text-white hover:text-indigo-50"
                   >
-                    {link.name}
+                    {t(link.name)}
                   </a>
                 ))}
               </div>
@@ -40,15 +42,15 @@ export default function Layout({ activeEl, ...props }) {
             <div className="ml-0 md:ml-10 space-x-4">
               <a
                 href="#"
-                className="inline-block bg-indigo-500 py-2 px-4 border border-transparent rounded-md text-base font-medium text-white hover:bg-opacity-75"
+                className="inline-block bg-indigo-500 py-2 px-4 border border-transparent rounded-md text-base font-medium text-white hover:bg-opacity-75 сapitalize"
               >
-                Sign in
+                {t('sign in')}
               </a>
               <a
                 href="#"
-                className="inline-block bg-white py-2 px-4 border border-transparent rounded-md text-base font-medium text-indigo-600 hover:bg-indigo-50"
+                className="inline-block bg-white py-2 px-4 border border-transparent rounded-md text-base font-medium text-indigo-600 hover:bg-indigo-50 capitalize"
               >
-                Sign up
+                {t('sign up')}
               </a>
             </div>
           </div>

@@ -9,5 +9,10 @@
   "patient": "пациент",
   "symptoms": "симптомы",
   "interview": "интервью",
-  "results": "полученные результаты"
+  "results": "полученные результаты",
+  "prices": "цены",
+  "company": "компания",
+  "terms and conditions": "условия и положения",
+  "sign in": "войти",
+  "sign up": "регистрация"
 }

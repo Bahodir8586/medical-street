@@ -3,7 +3,6 @@ import useTranslation from 'next-translate/useTranslation';
 const elements = ['introduction', 'patient', 'symptoms', 'interview', 'results'];
 export default function Sidebar({ activeIndex }) {
   const { t, lang } = useTranslation('common');
-
   return (
     <div className="px-8 mt-8">
       <ul>
@@ -18,7 +17,7 @@ export default function Sidebar({ activeIndex }) {
                 : 'text-gray-400'
             } font-medium mb-2`}
           >
-            {t('el')}
+            {t(el)}
           </li>
         ))}
       </ul>
