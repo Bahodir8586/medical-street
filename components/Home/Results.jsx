@@ -5,7 +5,9 @@ export default function Results({ submit, conditions, recommendedSpecialist }) {
   return (
     <div className="flex flex-col">
       {conditions?.length === 0 || !conditions ? (
-        <div className="flex flex-col items-center justify-center h-108">Loading...</div>
+        <div className="flex flex-col items-center justify-center h-108 capitalize">
+          {t('loading')}...
+        </div>
       ) : (
         <div className="flex py-2 flex-col mb-8">
           <div className="mb-3">

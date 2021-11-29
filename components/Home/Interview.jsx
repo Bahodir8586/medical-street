@@ -93,7 +93,7 @@ export default function Interview({ submit, initialInterview }) {
   return (
     <div className="flex flex-col">
       {isLoading && (
-        <div className="flex flex-col items-center justify-center h-108">Loading...</div>
+        <div className="flex flex-col items-center justify-center h-108">{t('loading')}...</div>
       )}
       {showMultiple && (
         <MultipleChoiceQuestion
