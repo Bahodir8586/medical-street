@@ -4,7 +4,7 @@ import Image from 'next/image';
 import Sidebar from './Sidebar';
 
 const navigation = [
-  { name: 'pricing', href: '#' },
+  { name: 'prices', href: '#' },
   { name: 'company', href: '#' },
   { name: 'terms and conditions', href: '#' },
 ];
@@ -32,7 +32,7 @@ export default function Layout({ activeEl, ...props }) {
                   <a
                     key={link.name}
                     href={link.href}
-                    className="text-base capitalize font-medium text-white hover:text-indigo-50"
+                    className="text-base font-medium text-white hover:text-indigo-50"
                   >
                     {t(link.name)}
                   </a>
@@ -42,7 +42,7 @@ export default function Layout({ activeEl, ...props }) {
             <div className="ml-0 md:ml-10 space-x-4">
               <a
                 href="#"
-                className="inline-block bg-indigo-500 py-2 px-4 border border-transparent rounded-md text-base font-medium text-white hover:bg-opacity-75 сapitalize"
+                className="inline-block bg-indigo-500 py-2 px-4 border border-transparent rounded-md text-base font-medium text-white hover:bg-opacity-75 capitalize"
               >
                 {t('sign in')}
               </a>
