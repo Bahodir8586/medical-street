@@ -1,8 +1,13 @@
 {
-    "hello":"Hello",
-    "yes":"yes",
-    "no":"no",
-    "don't know":"don't know",
-    "next":"next",
-    "finish":"finish"
+  "hello": "Hello",
+  "yes": "yes",
+  "no": "no",
+  "don't know": "don't know",
+  "next": "next",
+  "finish": "finish",
+  "introduction": "introduction",
+  "patient": "patient",
+  "symptoms": "symptoms",
+  "interview": "interview",
+  "results": "results"
 }
