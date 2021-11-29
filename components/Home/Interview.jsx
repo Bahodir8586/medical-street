@@ -29,7 +29,6 @@ export default function Interview({ submit, initialInterview }) {
       console.log(response.data);
       setIsLoading(false);
       if (response.data.should_stop) {
-        // return;
         submit(response.data.conditions, information);
         return;
       }
@@ -74,7 +73,6 @@ export default function Interview({ submit, initialInterview }) {
     const updatedInfo = { ...information };
     updatedInfo.evidence = [...updatedInfo.evidence, ...newData];
     setInformation(updatedInfo);
-    // loadNextQuestion();
   };
 
   const multiSelectHandler = (questionId, answerId) => {

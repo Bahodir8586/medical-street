@@ -33,5 +33,15 @@
   "Search, e.g. headache": "Search, e.g. headache",
   "add more symptoms": "Please try to add more symptoms",
   "Rotate model": "Rotate model",
-  "loading": "loading"
+  "loading": "loading",
+  "Recommended specialist": "Recommended specialist",
+  "Recommended visit type": "Recommended visit type",
+  "Probability": "Probability",
+  "Prevalence": "Prevalence",
+  "Categories": "Categories",
+  "Severity": "Severity",
+  "Acuteness": "Acuteness",
+  "Triage level": "Triage level",
+  "Recommended channel": "Recommended channel",
+  "Hint": "Hint"
 }

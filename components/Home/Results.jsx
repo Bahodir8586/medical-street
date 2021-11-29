@@ -11,13 +11,13 @@ export default function Results({ submit, conditions, recommendedSpecialist }) {
       ) : (
         <div className="flex py-2 flex-col mb-8">
           <div className="mb-3">
-            Recommended specialist:{' '}
+            {t('Recommended specialist')}:{' '}
             <span className="ml-2 font-medium text-xl capitalize">
               {recommendedSpecialist.recommended_specialist.name}
             </span>
           </div>
           <div className="mb-3">
-            Recommended visit type:{' '}
+            {t('Recommended visit type')}:{' '}
             <span className="ml-2 font-medium text-xl capitalize">
               {recommendedSpecialist.recommended_channel?.replaceAll('_', ' ')}
             </span>
@@ -33,25 +33,39 @@ export default function Results({ submit, conditions, recommendedSpecialist }) {
                       style={{ width: `${100 * el.probability}%` }}
                     ></div>
                   </div>
-                  <span className="ml-4">Probability: {(el.probability * 100).toFixed(2)}%</span>
+                  <span className="ml-4">
+                    {t('Probability')}: {(el.probability * 100).toFixed(2)}%
+                  </span>
                 </div>
               </div>
               <div className="flex capitalize">
                 <div className="w-full px-3">
-                  <li className="capitalize">Prevalence: {el.prevalence.replaceAll('_', ' ')}</li>
+                  <li className="capitalize">
+                    {t('Prevalence')}: {el.prevalence.replaceAll('_', ' ')}
+                  </li>
                   <li>
-                    Categories:{' '}
+                    {t('Categories')}:{' '}
                     {el.categories.map((cat, ind) => (
                       <span key={ind}>{cat}</span>
                     ))}
                   </li>
-                  <li>Severity: {el.severity.replaceAll('_', ' ')}</li>
-                  <li>Acuteness: {el.acuteness.replaceAll('_', ' ')}</li>
+                  <li>
+                    {t('Severity')}: {el.severity.replaceAll('_', ' ')}
+                  </li>
+                  <li>
+                    {t('Acuteness')}: {el.acuteness.replaceAll('_', ' ')}
+                  </li>
                 </div>
                 <div className="w-full px-3">
-                  <li>Triage level: {el.triage_level.replaceAll('_', ' ')}</li>
-                  <li>Recommended channel: {el.recommended_channel.replaceAll('_', ' ')}</li>
-                  <li>Hint: {el.extras?.hint}</li>
+                  <li>
+                    {t('Triage level')}: {el.triage_level.replaceAll('_', ' ')}
+                  </li>
+                  <li>
+                    {t('Recommended channel')}: {el.recommended_channel.replaceAll('_', ' ')}
+                  </li>
+                  <li>
+                    {t('Hint')}: {el.extras?.hint}
+                  </li>
                 </div>
               </div>
             </div>
