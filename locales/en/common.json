@@ -14,5 +14,13 @@
   "company": "Company",
   "terms and conditions": "Terms and Conditions",
   "sign in": "sign in",
-  "sign up": "sign up"
+  "sign up": "sign up",
+  "intro text": "You’re about to use a short (3 min), safe and anonymous health checkup. Your answers will be carefully analyzed and you’ll learn about possible causes of your symptoms.",
+  "terms text": "Before using the checkup, please read Terms of Service. Remember that:",
+  "terms 1": "Checkup is not a diagnosis. Checkup is for informational purposes and is not a qualified medical opinion.",
+  "terms 2": "Do not use in emergencies. In case of health emergency, call your local emergency number immediately.",
+  "terms 3": "Your data is safe. Information that you provide is anonymous and not shared with anyone.",
+  "I read and accept": "I read and accept",
+  "and": "and",
+  "Privacy Policy": "Privacy Policy"
 }

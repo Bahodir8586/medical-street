@@ -7,6 +7,7 @@ const navigation = [
   { name: 'prices', href: '#' },
   { name: 'company', href: '#' },
   { name: 'terms and conditions', href: '#' },
+  { name: 'Privacy Policy', href: '#' },
 ];
 
 export default function Layout({ activeEl, ...props }) {

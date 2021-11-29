@@ -2,11 +2,7 @@ import useTranslation from 'next-translate/useTranslation';
 import { useState } from 'react';
 import Link from 'next/link';
 
-const termsOfService = [
-  'Checkup is not a diagnosis. Checkup is for informational purposes and is not a qualified medical opinion.',
-  'Do not use in emergencies. In case of health emergency, call your local emergency number immediately.',
-  'Your data is safe. Information that you provide is anonymous and not shared with anyone.',
-];
+const termsOfService = ['terms 1', 'terms 2', 'terms 3'];
 export default function TermsOfService({ submit }) {
   const { t, lang } = useTranslation('common');
   const [accepted, setAccepted] = useState(false);
@@ -20,14 +16,12 @@ export default function TermsOfService({ submit }) {
     <div className="flex flex-col">
       <div className="flex py-2 h-108">
         <div className="w-full pl-4">
-          <h3 className="font-medium text-2xl mb-4">Terms of Service</h3>
-          <p className="text-gray-700 text-sm mb-8">
-            Before using the checkup, please read Terms of Service. Remember that:
-          </p>
+          <h3 className="font-medium text-2xl mb-4">{t('terms and conditions')}</h3>
+          <p className="text-gray-700 text-sm mb-8">{t('terms text')}</p>
           <ul className="list-disc pl-8 mb-8">
             {termsOfService.map((el, index) => (
               <li key={index} className="text-sm mb-3">
-                {el}
+                {t(el)}
               </li>
             ))}
           </ul>
@@ -43,14 +37,15 @@ export default function TermsOfService({ submit }) {
             </div>
             <div className="ml-3 text-base">
               <label htmlFor="privacyPolicy" className="text-gray-900">
-                I read and accept{' '}
+                {t('I read and accept')}{' '}
                 <Link href="/" passHref={true}>
-                  <a className="text-blue-600 hover:text-blue-400">Terms of Service</a>
+                  <a className="text-blue-600 hover:text-blue-400">{t('terms and conditions')}</a>
                 </Link>{' '}
-                and{' '}
+                {t('and')}{' '}
                 <Link href="/" passHref={true}>
-                  <a className="text-blue-600 hover:text-blue-400">Privacy Policy.</a>
+                  <a className="text-blue-600 hover:text-blue-400">{t('Privacy Policy')}</a>
                 </Link>
+                .
               </label>
             </div>
           </div>
