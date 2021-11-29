@@ -1,4 +1,4 @@
-import  useTranslation  from 'next-translate/useTranslation';
+import useTranslation from 'next-translate/useTranslation';
 import { useState, useMemo } from 'react';
 import { useRouter } from 'next/router';
 
@@ -97,11 +97,8 @@ export default function Symptoms({ sex, age, submit }) {
       <div className="flex flex-col md:flex-row py-0 md:py-8 min-h-108">
         <div className="w-full pl-4">
           {/* TODO: Title input and badges of symptoms */}
-          <h3 className="font-medium text-2xl mb-2">Add Symptoms</h3>
-          <p className="text-gray-700 text-sm">
-            Please use the search or click on the body. Add as many symptoms as you can for the most
-            accurate results.
-          </p>
+          <h3 className="font-medium text-2xl mb-2 capitalize">{t('add symptoms')}</h3>
+          <p className="text-gray-700 text-sm">{t('Please use the search')}</p>
           <div className="mt-4 relative">
             <input
               type="text"
@@ -116,7 +113,7 @@ export default function Symptoms({ sex, age, submit }) {
                 setTimeOutId(funcId);
               }}
               className="shadow-sm focus:ring-indigo-500 focus:border-indigo-500 block w-full sm:text-sm border-gray-300 rounded-md"
-              placeholder="Search, e.g. headache"
+              placeholder={t('Search, e.g. headache')}
             />
             {showResults && (
               <div className="w-full h-56 bg-gray-100 absolute top-10 overflow-auto">
@@ -134,7 +131,7 @@ export default function Symptoms({ sex, age, submit }) {
           </div>
           <div className="mt-4 h-48 w-full bg-gray-200 rounded overflow-auto">
             {symptoms.length === 0 ? (
-              <p className="mx-auto py-20 text-center">Please try to add more symptoms</p>
+              <p className="mx-auto py-20 text-center">{t('add more symptoms')}</p>
             ) : (
               <div className="py-2 px-1">
                 {symptoms.map((el) => (
@@ -148,7 +145,7 @@ export default function Symptoms({ sex, age, submit }) {
                       type="button"
                       className="flex-shrink-0 ml-0.5 h-4 w-4 rounded-full inline-flex items-center justify-center text-blue-700 hover:bg-blue-600 hover:text-white focus:outline-none focus:bg-blue-300 focus:text-white"
                     >
-                      <span className="sr-only">Remove large option</span>
+                      <span className="sr-only"></span>
                       <svg className="h-2 w-2" stroke="currentColor" fill="none" viewBox="0 0 8 8">
                         <path strokeLinecap="round" strokeWidth="1.5" d="M1 1l6 6m0-6L1 7" />
                       </svg>
@@ -177,7 +174,7 @@ export default function Symptoms({ sex, age, submit }) {
               className="inline-flex items-center px-4 py-2 border border-transparent text-sm font-medium rounded-md shadow-sm text-white bg-blue-600 hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500"
               onClick={() => setShowFront(!showFront)}
             >
-              Rotate model
+              {t('Rotate model')}
             </button>
           </div>
         </div>

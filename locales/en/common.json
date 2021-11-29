@@ -27,5 +27,10 @@
   "female": "female",
   "male": "male",
   "How old are you": "How old are you",
-  "Please check all": "Please check all the statements below that apply to you."
+  "Please check all": "Please check all the statements below that apply to you.",
+  "add symptoms": "add symptoms",
+  "Please use the search": "Please use the search or click on the body. Add as many symptoms as you can for the most accurate results.",
+  "Search, e.g. headache": "Search, e.g. headache",
+  "add more symptoms": "Please try to add more symptoms",
+  "Rotate model": "Rotate model"
 }
